@@ -7267,6 +7267,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 434f956bf8ce34ada907d61a470ca63c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: db66224d5e321d44bb3ab6b03fd6832e, type: 2}
     - target: {fileID: 919132149155446097, guid: 434f956bf8ce34ada907d61a470ca63c, type: 3}
       propertyPath: m_Name
       value: Coffee Bean Bag
@@ -7820,7 +7824,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 901d491d68de4614f94082da47053d79, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8793,6 +8797,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: ae0b2017736aa487085237304b1ab36f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 567bd52a381732c47bcc7dc4ca57e203, type: 2}
     - target: {fileID: 919132149155446097, guid: ae0b2017736aa487085237304b1ab36f, type: 3}
       propertyPath: m_Name
       value: Mug
