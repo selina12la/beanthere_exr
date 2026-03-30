@@ -11435,7 +11435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoffeeGrinderTrigger
   coffeeParticles: {fileID: 297520053}
-  grinderSound: {fileID: 1574001608}
+  grinderSound: {fileID: 0}
 --- !u!82 &1574001608
 AudioSource:
   m_ObjectHideFlags: 0
