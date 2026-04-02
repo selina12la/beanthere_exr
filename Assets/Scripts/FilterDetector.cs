@@ -1,19 +1,17 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class FilterDetector : MonoBehaviour
 {
-    public AudioSource filterSound;
-    private bool hasFilter = false;
-
+    public CoffeeGrinderController grinder;
+    
     public void OnFilterInserted()
     {
-        hasFilter = true;
-        filterSound.Play();
+        grinder.AddFilter();
     }
-
+    
     public void OnFilterRemoved()
     {
-        hasFilter = false;
-        filterSound.Stop();
+        grinder.RemoveFilter();
     }
 }
