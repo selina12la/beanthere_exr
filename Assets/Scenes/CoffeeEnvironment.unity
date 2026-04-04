@@ -5914,6 +5914,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tamp
       objectReference: {fileID: 0}
+    - target: {fileID: 5802629039803458218, guid: c74dc6fc13b3638408dab5fe437587b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9100797056100036930, guid: c74dc6fc13b3638408dab5fe437587b9, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -6005,6 +6009,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 455977959}
     m_Modifications:
+    - target: {fileID: 405781865676965728, guid: 8729872b4399695438044e80a6524fd6, type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 2099870719}
     - target: {fileID: 573131099150701355, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6115,6 +6123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goose Neck Kettle
       objectReference: {fileID: 0}
+    - target: {fileID: 6257048400736635323, guid: 73ff1fecf144cf84690a5157c78389d6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6176,6 +6188,10 @@ PrefabInstance:
     - target: {fileID: 1716200172835642416, guid: 157d1c1bde1d25d40843bb966ed0fa14, type: 3}
       propertyPath: m_Name
       value: Frothing Pitcher
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716200172835642416, guid: 157d1c1bde1d25d40843bb966ed0fa14, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2965318780246655793, guid: 157d1c1bde1d25d40843bb966ed0fa14, type: 3}
       propertyPath: m_InteractionManager
@@ -6309,6 +6325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coffee Bean Bag
       objectReference: {fileID: 0}
+    - target: {fileID: 1880710881507985304, guid: 4588c493b5c083541a284cdb0153cb32, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6334,6 +6354,10 @@ PrefabInstance:
     - target: {fileID: 4293168428340150326, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
       propertyPath: m_Name
       value: Coffee Grinder
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293168428340150326, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8639479299672842495, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6401,6 +6425,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bottomless Portafilter
       objectReference: {fileID: 0}
+    - target: {fileID: 7514989237321322897, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8326096277244315093, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -6462,6 +6490,10 @@ PrefabInstance:
     - target: {fileID: 937948582759649507, guid: 54758b10aa8f3f24b9bf09e07391f080, type: 3}
       propertyPath: m_Name
       value: Knock Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 937948582759649507, guid: 54758b10aa8f3f24b9bf09e07391f080, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8645646992288379181, guid: 54758b10aa8f3f24b9bf09e07391f080, type: 3}
       propertyPath: m_LocalPosition.x

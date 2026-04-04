@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5811767554490270456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3246314599140974787}
+  m_Layer: 0
+  m_Name: MugSnapAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3246314599140974787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5811767554490270456}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.1628, y: 0.9595, z: 1.792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5032064049567134488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8254351820461924068
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +42,7 @@ GameObject:
   - component: {fileID: 5032064049567134488}
   - component: {fileID: 696514952129787655}
   - component: {fileID: 8112793400725093668}
+  - component: {fileID: 7559281677175413771}
   m_Layer: 0
   m_Name: Mug
   m_TagString: Untagged
@@ -33,6 +65,7 @@ Transform:
   m_Children:
   - {fileID: 5824491042867144867}
   - {fileID: 5406470202901473965}
+  - {fileID: 3246314599140974787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &696514952129787655
@@ -192,6 +225,21 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
+--- !u!114 &7559281677175413771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8254351820461924068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709d5712d8414d62b7bd9fcaf14a91f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MugXR
+  grabInteractable: {fileID: 8112793400725093668}
+  rb: {fileID: 696514952129787655}
+  snapAnchor: {fileID: 3246314599140974787}
 --- !u!1 &8935972105289569364
 GameObject:
   m_ObjectHideFlags: 0
