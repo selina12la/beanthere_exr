@@ -38,6 +38,15 @@ public class MugSnapZone : MonoBehaviour
             Debug.LogWarning("MugSnapAnchor fehlt!");
             return;
         }
+        
+        if (machine != null)
+        {
+            machine.SetMug(true);
+        }
+        else
+        {
+            Debug.LogError("No machine assigned in MugSnapZone!");
+        }
 
         Transform root = mug.transform;
         Transform anchor = mug.snapAnchor;
@@ -58,6 +67,6 @@ public class MugSnapZone : MonoBehaviour
         root.position = snapPoint.position - (root.rotation * anchor.localPosition);
 
         root.SetParent(snapPoint, true);
-        machine.SetMug(true);
+       
     }
 }

@@ -27,7 +27,7 @@ public class GrinderSnapZone : MonoBehaviour
 
     public void TrySnapPortafilter(PortafilterXR portafilter)
     {
-        if (portafilter == null)
+       if (portafilter == null)
             return;
 
         if (portafilter.grabInteractable.isSelected)
@@ -37,6 +37,15 @@ public class GrinderSnapZone : MonoBehaviour
         {
             Debug.LogWarning("PortafilterSnapAnchor fehlt!");
             return;
+        }
+        
+        if (machine != null)
+        {
+            machine.SetFilter(true);
+        }
+        else
+        {
+            Debug.LogError("No machine assigned in GrinderSnapZone!");
         }
 
         Transform root = portafilter.transform;
@@ -58,6 +67,6 @@ public class GrinderSnapZone : MonoBehaviour
         root.position = snapPoint.position - (root.rotation * anchor.localPosition);
 
         root.SetParent(snapPoint, true);
-        machine.SetFilter(true);
+        
     }
 }

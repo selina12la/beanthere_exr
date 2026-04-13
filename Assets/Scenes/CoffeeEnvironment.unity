@@ -1326,7 +1326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &712136850
 Transform:
   m_ObjectHideFlags: 0
@@ -11384,7 +11384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5802629039803458218, guid: c74dc6fc13b3638408dab5fe437587b9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9100797056100036930, guid: c74dc6fc13b3638408dab5fe437587b9, type: 3}
       propertyPath: m_InteractionManager
@@ -11761,6 +11761,10 @@ PrefabInstance:
     - target: {fileID: 946796582428338609, guid: 91a6bae659618e04185f74443aef9bfd, type: 3}
       propertyPath: m_Name
       value: WDT
+      objectReference: {fileID: 0}
+    - target: {fileID: 946796582428338609, guid: 91a6bae659618e04185f74443aef9bfd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1748291304151928858, guid: 91a6bae659618e04185f74443aef9bfd, type: 3}
       propertyPath: m_InteractionManager

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class CoffeeButton : MonoBehaviour
+/*public class CoffeeButton : MonoBehaviour
 {
     public EspressoMachineController machine;
 
@@ -9,4 +9,4 @@ public class CoffeeButton : MonoBehaviour
     {
         machine.StartCoffee();
     }
-}
+}*/
