@@ -5468,51 +5468,6 @@ MonoBehaviour:
   m_RayInteractorChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1709186467
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1709186468}
-  - component: {fileID: 1709186469}
-  m_Layer: 0
-  m_Name: EspressoFilterDetector
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1709186468
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709186467}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2270498421769547458}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1709186469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1709186467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a08d52a38edcf01418ececf5cef4b81f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EspressoFilterDetector
-  machine: {fileID: 1442360791}
 --- !u!1 &1749883406
 GameObject:
   m_ObjectHideFlags: 0
@@ -10692,7 +10647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1317f8752a943b7b169c166c67221b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrinderSnapZone
-  machine: {fileID: 1442360791}
+  machine: {fileID: 0}
   snapPoint: {fileID: 1750483058}
 --- !u!65 &1833023388
 BoxCollider:
@@ -11518,25 +11473,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1366309806576069507, guid: 8729872b4399695438044e80a6524fd6, type: 3}
-      propertyPath: machine
-      value: 
-      objectReference: {fileID: 1442360791}
     - target: {fileID: 7797178032270325161, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.347
       objectReference: {fileID: 0}
-    - target: {fileID: 7797178032270325161, guid: 8729872b4399695438044e80a6524fd6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.101
-      objectReference: {fileID: 0}
     - target: {fileID: 8235034754926511463, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.31505898
+      value: 0.46436
       objectReference: {fileID: 0}
     - target: {fileID: 8235034754926511463, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.081
+      value: 0.997
       objectReference: {fileID: 0}
     - target: {fileID: 8500371508173530277, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_Name
@@ -11560,9 +11507,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 573131099150701355, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 712136850}
-    - targetCorrespondingSourceObject: {fileID: 573131099150701355, guid: 8729872b4399695438044e80a6524fd6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1709186468}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8729872b4399695438044e80a6524fd6, type: 3}
 --- !u!4 &2270498421769547458 stripped

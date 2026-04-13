@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GrinderSnapZone : MonoBehaviour
 {
+    public EspressoMachineController machine;
     public Transform snapPoint;
 
     private void OnTriggerEnter(Collider other)
@@ -57,5 +58,6 @@ public class GrinderSnapZone : MonoBehaviour
         root.position = snapPoint.position - (root.rotation * anchor.localPosition);
 
         root.SetParent(snapPoint, true);
+        machine.SetFilter(true);
     }
 }
