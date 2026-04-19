@@ -3,14 +3,16 @@ using UnityEngine;
 public class EspressoFilterDetector : MonoBehaviour
 {
     public EspressoMachineController machine;
-
+    
     public void OnFilterInserted()
     {
-        machine.SetFilter(true);
+        if (machine != null)
+            machine.SetFilter(true);
     }
-
+    
     public void OnFilterRemoved()
     {
-        machine.SetFilter(false);
+        if (machine != null)
+            machine.SetFilter(false);
     }
 }

@@ -4,48 +4,43 @@ public class GrinderSnapZone : MonoBehaviour
 {
     public EspressoMachineController machine;
     public Transform snapPoint;
+    
+    private bool isFilterSnapped = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        PortafilterXR portafilter = other.GetComponent<PortafilterXR>();
-
-        if (portafilter != null)
+        PortafilterXR portafilter = other.GetComponentInParent<PortafilterXR>();
+        
+        if (portafilter != null && !isFilterSnapped)
         {
+            isFilterSnapped = true;
             portafilter.SetSnapZone(this);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        PortafilterXR portafilter = other.GetComponent<PortafilterXR>();
-
-        if (portafilter != null)
+        PortafilterXR portafilter = other.GetComponentInParent<PortafilterXR>();
+        
+        if (portafilter != null && isFilterSnapped)
         {
+            isFilterSnapped = false;
             portafilter.ClearSnapZone(this);
         }
     }
 
     public void TrySnapPortafilter(PortafilterXR portafilter)
     {
-       if (portafilter == null)
-            return;
-
-        if (portafilter.grabInteractable.isSelected)
-            return;
-
+        if (portafilter == null) return;
+        if (portafilter.grabInteractable.isSelected) return;
         if (portafilter.snapAnchor == null)
         {
-            Debug.LogWarning("PortafilterSnapAnchor fehlt!");
             return;
         }
         
         if (machine != null)
         {
             machine.SetFilter(true);
-        }
-        else
-        {
-            Debug.LogError("No machine assigned in GrinderSnapZone!");
         }
 
         Transform root = portafilter.transform;
@@ -61,12 +56,8 @@ public class GrinderSnapZone : MonoBehaviour
         }
 
         root.SetParent(null);
-
         root.rotation = snapPoint.rotation * Quaternion.Inverse(anchor.localRotation);
-
         root.position = snapPoint.position - (root.rotation * anchor.localPosition);
-
         root.SetParent(snapPoint, true);
-        
     }
 }

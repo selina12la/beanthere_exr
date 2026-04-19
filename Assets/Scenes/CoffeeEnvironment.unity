@@ -1354,7 +1354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110cf82fe7f6f504fac67ec0e5f5ba6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoffeeButton
-  machine: {fileID: 1442360791}
 --- !u!114 &712136852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4332,10 +4331,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ffb4494c02b0c4dac017ea230615a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EspressoMachineController
-  mugInserted: 0
-  filterInserted: 0
   coffeeParticles: {fileID: 1772415365}
   coffeeSound: {fileID: 1442360790}
+  brewingDuration: 3
 --- !u!1 &1571993796
 GameObject:
   m_ObjectHideFlags: 0
@@ -5670,7 +5668,7 @@ Transform:
   m_GameObject: {fileID: 1766194607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.5, y: 0.1, z: 0}
+  m_LocalPosition: {x: -0.5, y: -0.18, z: 0.0379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5703,8 +5701,8 @@ Transform:
   m_GameObject: {fileID: 1772415363}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -4.2568, y: 1.184, z: -0.213}
-  m_LocalScale: {x: 0.07, y: 0.07999998, z: 0.03999999}
+  m_LocalPosition: {x: -4.3147, y: 1.2034, z: -0.1779}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.09}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2270498421769547458}
@@ -5719,7 +5717,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 3
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 1
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -5845,7 +5843,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 1.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6341,7 +6339,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 0
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -6484,7 +6482,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 20
       mode: 0
       spread: 0
       speed:
@@ -6546,7 +6544,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -10458,7 +10456,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7883ef7040af1d43a60dc035b149250, type: 2}
+  - {fileID: 2100000, guid: 4eac37ea1218dca4a9c8a5840efa413c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10485,7 +10483,7 @@ ParticleSystemRenderer:
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.03
+  m_MaxParticleSize: 0.01
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -10601,7 +10599,7 @@ Transform:
   m_GameObject: {fileID: 1833023384}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.298, y: 1.223, z: -0.198}
+  m_LocalPosition: {x: -4.315, y: 1.223, z: -0.185}
   m_LocalScale: {x: 0.5, y: 0.22684, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11408,6 +11406,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 455977959}
     m_Modifications:
+    - target: {fileID: 2743436485076798144, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2743436485076798144, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
+      propertyPath: m_TagString
+      value: Mug
+      objectReference: {fileID: 0}
     - target: {fileID: 5032064049567134488, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -11448,6 +11454,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5811767554490270456, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6602117705828545049, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8112793400725093668, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -11455,6 +11469,18 @@ PrefabInstance:
     - target: {fileID: 8254351820461924068, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
       propertyPath: m_Name
       value: Mug
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254351820461924068, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254351820461924068, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
+      propertyPath: m_TagString
+      value: Mug
+      objectReference: {fileID: 0}
+    - target: {fileID: 8935972105289569364, guid: ce4421ce81f513a4a93a533b2b50b4ca, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11522,6 +11548,10 @@ PrefabInstance:
       propertyPath: machine
       value: 
       objectReference: {fileID: 1442360791}
+    - target: {fileID: 2658825377859128291, guid: 8729872b4399695438044e80a6524fd6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 7797178032270325161, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.347
@@ -11532,11 +11562,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8235034754926511463, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.31505898
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 8235034754926511463, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.081
+      value: 1.0543
       objectReference: {fileID: 0}
     - target: {fileID: 8500371508173530277, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_Name
@@ -11936,13 +11966,41 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 2099870719}
+    - target: {fileID: 1698529101034413077, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722273378364300026, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648935087603100052, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7514989237321322897, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
       propertyPath: m_Name
       value: Bottomless Portafilter
       objectReference: {fileID: 0}
     - target: {fileID: 7514989237321322897, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514989237321322897, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514989237321322897, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
+      propertyPath: m_TagString
+      value: Portafilter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668351860509991459, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7668351860509991459, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
+      propertyPath: m_TagString
+      value: Portafilter
       objectReference: {fileID: 0}
     - target: {fileID: 8326096277244315093, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
       propertyPath: m_LocalPosition.x

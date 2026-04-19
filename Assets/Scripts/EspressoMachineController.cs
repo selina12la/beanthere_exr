@@ -1,49 +1,72 @@
 using UnityEngine;
+using System.Collections;
 
 public class EspressoMachineController : MonoBehaviour
 {
-    public bool mugInserted = false;
-    public bool filterInserted = false;
+    private bool mugInserted = false;
+    private bool filterInserted = false;
 
     public ParticleSystem coffeeParticles;
     public AudioSource coffeeSound;
-
-    private bool hasStarted = false;
+    
+    public float brewingDuration = 15f;
+    
+    private bool isBrewing = false;
 
     public void SetMug(bool state)
     {
         mugInserted = state;
-        Debug.Log("MUG: " + state);
-        TryStart();
+        CheckStartCondition();
     }
 
     public void SetFilter(bool state)
     {
         filterInserted = state;
-        Debug.Log("FILTER: " + state);
-        TryStart();
+        CheckStartCondition();
     }
-
-    private void TryStart()
+    
+    private void CheckStartCondition()
     {
-        if (hasStarted) return;
-
-        if (mugInserted && filterInserted)
+        if (mugInserted && filterInserted && !isBrewing)
         {
             StartCoffee();
         }
     }
-
+    
     private void StartCoffee()
     {
-        hasStarted = true;
-
-        Debug.Log("Coffee started automatically!");
+        isBrewing = true;
 
         if (coffeeParticles != null)
+        {
             coffeeParticles.Play();
+        }
 
         if (coffeeSound != null)
+        {
             coffeeSound.Play();
+        }
+
+        StartCoroutine(StopCoffeeAfterDelay());
+    }
+    
+    private IEnumerator StopCoffeeAfterDelay()
+    {
+        yield return new WaitForSeconds(brewingDuration);
+
+        if (coffeeParticles != null)
+        {
+            coffeeParticles.Stop();
+        }
+
+        if (coffeeSound != null)
+        {
+            coffeeSound.Stop();
+        }
+
+        isBrewing = false;
+        
+        mugInserted = false;
+        filterInserted = false;
     }
 }
