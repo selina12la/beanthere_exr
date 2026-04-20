@@ -626,7 +626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_text
-      value: 
+      value: 'Task 2: Put Portafilter into Grindermaschine'
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_fontSize
@@ -1346,7 +1346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_text
-      value: 
+      value: 'Task 3: Take Portafilter to Coffeemaschine'
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_fontSize
@@ -4133,7 +4133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_text
-      value: 
+      value: 'Task 5: Pug Mug on Tray'
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_fontSize
@@ -4309,7 +4309,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 10
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -11613,7 +11613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_text
-      value: 
+      value: 'Task 4: Take Mug to Coffeemaschine'
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_fontSize
@@ -13134,7 +13134,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_text
-      value: 
+      value: 'Task 1: Hover Bean Bag over Grindermaschine'
       objectReference: {fileID: 0}
     - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_fontSize
