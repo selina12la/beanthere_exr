@@ -61,4 +61,17 @@ public class MugXR : MonoBehaviour
         if (currentSnapZone == zone)
             currentSnapZone = null;
     }
+    
+    public void ResetMug()
+    {
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
+        currentSnapZone = null;
+        transform.SetParent(null);
+    }
 }
