@@ -3,6 +3,7 @@ using UnityEngine;
 public class GrinderSnapZone : MonoBehaviour
 {
     public EspressoMachineController machine;
+    public TaskListManager taskManager; 
     public Transform snapPoint;
     
     private bool isFilterSnapped = false;
@@ -42,6 +43,8 @@ public class GrinderSnapZone : MonoBehaviour
         {
             machine.SetFilter(true);
         }
+        if (taskManager != null)
+            taskManager.OnFilterInMachine();
 
         Transform root = portafilter.transform;
         Transform anchor = portafilter.snapAnchor;

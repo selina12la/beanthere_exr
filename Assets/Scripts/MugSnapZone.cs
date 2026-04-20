@@ -3,6 +3,7 @@ using UnityEngine;
 public class MugSnapZone : MonoBehaviour
 {
     public EspressoMachineController machine;
+    public TaskListManager taskManager;
     public Transform snapPoint;
     
     private bool isMugSnapped = false;
@@ -42,6 +43,9 @@ public class MugSnapZone : MonoBehaviour
         {
             machine.SetMug(true);
         }
+        
+        if (taskManager != null)
+            taskManager.OnMugInMachine();
 
         Transform root = mug.transform;
         Transform anchor = mug.snapAnchor;

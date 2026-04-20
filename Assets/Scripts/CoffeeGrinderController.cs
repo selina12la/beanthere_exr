@@ -11,6 +11,8 @@ public class CoffeeGrinderController : MonoBehaviour
     public ParticleSystem beansParticles;
     public ParticleSystem grindParticles;
     
+    public TaskListManager taskManager;
+    
     private bool hasBeans = false;
     private bool hasFilter = false;
     
@@ -22,6 +24,8 @@ public class CoffeeGrinderController : MonoBehaviour
             beansPourSound.Play();
             beansParticles.Play();
             CheckGrinderReady();
+            if (taskManager != null) 
+                taskManager.OnBeansPoured();
         }
     }
     
@@ -39,6 +43,8 @@ public class CoffeeGrinderController : MonoBehaviour
             hasFilter = true;
             filterSnapSound.Play();
             CheckGrinderReady();
+            if (taskManager != null)
+                taskManager.OnFilterGround();
         }
     }
     
