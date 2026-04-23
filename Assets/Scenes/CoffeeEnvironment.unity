@@ -536,10 +536,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1348861154}
     m_Modifications:
-    - target: {fileID: 1089618936712428452, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: taskText
-      value: 
-      objectReference: {fileID: 136673962}
     - target: {fileID: 2952791428495237777, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_Name
       value: TaskItem2
@@ -624,26 +620,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.w
-      value: 17.434853
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.z
-      value: -299.39966
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -654,17 +630,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4241718790627425352, guid: c9524df98571fb04a9932047cc00875d, type: 3}
   m_PrefabInstance: {fileID: 136673960}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &136673962 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-  m_PrefabInstance: {fileID: 136673960}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &179683478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,10 +1221,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1348861154}
     m_Modifications:
-    - target: {fileID: 1089618936712428452, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: taskText
-      value: 
-      objectReference: {fileID: 532321021}
     - target: {fileID: 2952791428495237777, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_Name
       value: TaskItem3
@@ -1344,26 +1305,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.w
-      value: 22.657242
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.z
-      value: -297.7957
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1374,17 +1315,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4241718790627425352, guid: c9524df98571fb04a9932047cc00875d, type: 3}
   m_PrefabInstance: {fileID: 532321019}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &532321021 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-  m_PrefabInstance: {fileID: 532321019}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &539443620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4043,10 +3973,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1348861154}
     m_Modifications:
-    - target: {fileID: 1089618936712428452, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: taskText
-      value: 
-      objectReference: {fileID: 1342885621}
     - target: {fileID: 2952791428495237777, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_Name
       value: TaskItem5
@@ -4131,26 +4057,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.w
-      value: 22.657242
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.z
-      value: -297.7957
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4161,17 +4067,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4241718790627425352, guid: c9524df98571fb04a9932047cc00875d, type: 3}
   m_PrefabInstance: {fileID: 1342885619}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1342885621 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-  m_PrefabInstance: {fileID: 1342885619}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1346327444
 GameObject:
   m_ObjectHideFlags: 0
@@ -4304,12 +4199,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 10
+    m_Left: 20
+    m_Right: 20
+    m_Top: 20
+    m_Bottom: 20
+  m_ChildAlignment: 3
+  m_Spacing: 5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -4330,7 +4225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11523,10 +11418,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1348861154}
     m_Modifications:
-    - target: {fileID: 1089618936712428452, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: taskText
-      value: 
-      objectReference: {fileID: 1861595000}
     - target: {fileID: 2952791428495237777, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_Name
       value: TaskItem4
@@ -11611,26 +11502,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.w
-      value: 22.657242
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.z
-      value: -297.7957
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11641,17 +11512,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4241718790627425352, guid: c9524df98571fb04a9932047cc00875d, type: 3}
   m_PrefabInstance: {fileID: 1861594998}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1861595000 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-  m_PrefabInstance: {fileID: 1861594998}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1922775807
 GameObject:
   m_ObjectHideFlags: 0
@@ -12047,8 +11907,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 85, y: 58}
-  m_SizeDelta: {x: 500, y: 300}
+  m_AnchoredPosition: {x: 225, y: 310}
+  m_SizeDelta: {x: 450, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2068856276
 PrefabInstance:
@@ -13044,10 +12904,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1348861154}
     m_Modifications:
-    - target: {fileID: 1089618936712428452, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: taskText
-      value: 
-      objectReference: {fileID: 6388262778020147727}
     - target: {fileID: 2952791428495237777, guid: c9524df98571fb04a9932047cc00875d, type: 3}
       propertyPath: m_Name
       value: TaskItem1
@@ -13132,26 +12988,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSize
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.w
-      value: 22.657242
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_margin.z
-      value: -297.7957
-      objectReference: {fileID: 0}
-    - target: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13162,17 +12998,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4241718790627425352, guid: c9524df98571fb04a9932047cc00875d, type: 3}
   m_PrefabInstance: {fileID: 6388262778020147725}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6388262778020147727 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9062771694162070810, guid: c9524df98571fb04a9932047cc00875d, type: 3}
-  m_PrefabInstance: {fileID: 6388262778020147725}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &8589808829588323212
 PrefabInstance:
   m_ObjectHideFlags: 0
