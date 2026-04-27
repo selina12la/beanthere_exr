@@ -11,6 +11,9 @@ public class CoffeeGrinderController : MonoBehaviour
     public ParticleSystem beansParticles;
     public ParticleSystem grindParticles;
     
+    [Header("Portafilter Reference")]
+    public PortafilterXR currentPortafilter; 
+    
     public TaskListManager taskManager;
     
     private bool hasBeans = false;
@@ -36,11 +39,12 @@ public class CoffeeGrinderController : MonoBehaviour
         StopGrinder();
     }
     
-    public void AddFilter()
+    public void AddFilter(PortafilterXR portafilter)
     {
         if (!hasFilter)
         {
             hasFilter = true;
+            currentPortafilter = portafilter;  
             filterSnapSound.Play();
             CheckGrinderReady();
             if (taskManager != null)
@@ -51,16 +55,37 @@ public class CoffeeGrinderController : MonoBehaviour
     public void RemoveFilter()
     {
         hasFilter = false;
+        currentPortafilter = null;
         StopGrinder();
     }
     
     private void CheckGrinderReady()
     {
+        Debug.Log($"CheckGrinderReady: hasBeans={hasBeans}, hasFilter={hasFilter}");
         if (hasBeans && hasFilter)
         {
-                grinderSound.Play();
-                grindParticles.Play();
+            Debug.Log("🔄 START GRINDING!");
+            grinderSound.Play();
+            grindParticles.Play();
+            
+            StartGrinding();
         }
+    }
+    
+    private void StartGrinding()
+    {
+        
+        Invoke(nameof(FinishGrinding), 1.5f);
+    }
+    
+    private void FinishGrinding()
+    {
+        if (currentPortafilter != null)
+        {
+            currentPortafilter.AddGrounds();
+           
+        }
+        StopGrinder();
     }
     
     private void StopGrinder()

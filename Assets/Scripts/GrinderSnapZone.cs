@@ -2,53 +2,51 @@ using UnityEngine;
 
 public class GrinderSnapZone : MonoBehaviour
 {
-    public EspressoMachineController machine;
-    public TaskListManager taskManager; 
+    public CoffeeGrinderController grinder;  
     public Transform snapPoint;
     
-    private bool isFilterSnapped = false;
-
     private void OnTriggerEnter(Collider other)
     {
-        PortafilterXR portafilter = other.GetComponentInParent<PortafilterXR>();
+        PortafilterXR portafilter = other.GetComponent<PortafilterXR>();
         
-        if (portafilter != null && !isFilterSnapped)
+        if (portafilter != null)
         {
-            isFilterSnapped = true;
             portafilter.SetSnapZone(this);
         }
     }
-
+    
     private void OnTriggerExit(Collider other)
     {
-        PortafilterXR portafilter = other.GetComponentInParent<PortafilterXR>();
+        PortafilterXR portafilter = other.GetComponent<PortafilterXR>();
         
-        if (portafilter != null && isFilterSnapped)
+        if (portafilter != null)
         {
-            isFilterSnapped = false;
             portafilter.ClearSnapZone(this);
         }
     }
-
+    
     public void TrySnapPortafilter(PortafilterXR portafilter)
     {
-        if (portafilter == null) return;
-        if (portafilter.grabInteractable.isSelected) return;
+        if (portafilter == null)
+            return;
+            
+        if (portafilter.grabInteractable.isSelected)
+            return;
+            
         if (portafilter.snapAnchor == null)
         {
+            Debug.LogWarning("PortafilterSnapAnchor fehlt!");
             return;
         }
         
-        if (machine != null)
+        if (grinder != null)
         {
-            machine.SetFilter(true);
+            grinder.AddFilter(portafilter);  
         }
-        if (taskManager != null)
-            taskManager.OnFilterInMachine();
-
+        
         Transform root = portafilter.transform;
         Transform anchor = portafilter.snapAnchor;
-
+        
         Rigidbody rb = portafilter.rb;
         if (rb != null)
         {
@@ -57,7 +55,7 @@ public class GrinderSnapZone : MonoBehaviour
             rb.isKinematic = true;
             rb.useGravity = false;
         }
-
+        
         root.SetParent(null);
         root.rotation = snapPoint.rotation * Quaternion.Inverse(anchor.localRotation);
         root.position = snapPoint.position - (root.rotation * anchor.localPosition);

@@ -9,6 +9,10 @@ public class PortafilterXR : MonoBehaviour
     public Rigidbody rb;
 
     public Transform snapAnchor;
+    
+    [Header("Coffee Grounds")]
+    public GameObject coffeeGroundsVisual; 
+    public bool hasGrounds = false;          
 
     private GrinderSnapZone currentSnapZone;
 
@@ -19,6 +23,12 @@ public class PortafilterXR : MonoBehaviour
 
         if (rb == null)
             rb = GetComponent<Rigidbody>();
+            
+       
+        if (coffeeGroundsVisual != null)
+            coffeeGroundsVisual.SetActive(false);
+        
+        Debug.Log("CoffeeGrounds visual found and hidden");
     }
 
     private void OnEnable()
@@ -61,5 +71,28 @@ public class PortafilterXR : MonoBehaviour
     {
         if (currentSnapZone == zone)
             currentSnapZone = null;
+    }
+    
+  
+    public void AddGrounds()
+    {
+        hasGrounds = true;
+        if (coffeeGroundsVisual != null)
+        {
+            coffeeGroundsVisual.SetActive(true);
+        }
+    }
+    
+    public void RemoveGrounds()
+    {
+        hasGrounds = false;
+        if (coffeeGroundsVisual != null)
+            coffeeGroundsVisual.SetActive(false);
+        Debug.Log("Coffee grounds removed from portafilter");
+    }
+    
+    public bool HasGrounds()
+    {
+        return hasGrounds;
     }
 }

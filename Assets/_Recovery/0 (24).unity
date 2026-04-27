@@ -12905,10 +12905,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4775804758274115397, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
-      propertyPath: currentPortafilter
-      value: 
-      objectReference: {fileID: 8589808829588323215}
     - target: {fileID: 8448428468823220049, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
       propertyPath: taskManager
       value: 
@@ -13193,17 +13189,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8326096277244315093, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
   m_PrefabInstance: {fileID: 8589808829588323212}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8589808829588323215 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3613449514534476489, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
-  m_PrefabInstance: {fileID: 8589808829588323212}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94bdaea90db04354ba6375275fe21703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PortafilterXR
 --- !u!1001 &9180171963724411072
 PrefabInstance:
   m_ObjectHideFlags: 0
