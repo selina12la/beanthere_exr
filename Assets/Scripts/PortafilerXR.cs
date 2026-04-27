@@ -12,9 +12,11 @@ public class PortafilterXR : MonoBehaviour
     
     [Header("Coffee Grounds")]
     public GameObject coffeeGroundsVisual; 
-    public bool hasGrounds = false;          
-
-    private GrinderSnapZone currentSnapZone;
+    public bool hasGrounds = false;
+    
+    // Zwei verschiedene SnapZones
+    private GrinderSnapZone currentGrinderZone;
+    private FilterSnapZone currentEspressoZone;
 
     private void Awake()
     {
@@ -24,7 +26,6 @@ public class PortafilterXR : MonoBehaviour
         if (rb == null)
             rb = GetComponent<Rigidbody>();
             
-       
         if (coffeeGroundsVisual != null)
             coffeeGroundsVisual.SetActive(false);
         
@@ -56,30 +57,57 @@ public class PortafilterXR : MonoBehaviour
 
     private void OnReleased(SelectExitEventArgs args)
     {
-        if (currentSnapZone != null)
+        // Priorität: Espresso Zone zuerst, dann Grinder Zone
+        if (currentEspressoZone != null)
         {
-            currentSnapZone.TrySnapPortafilter(this);
+            Debug.Log("Snapping to Espresso Machine Zone");
+            currentEspressoZone.TrySnapPortafilter(this);
+        }
+        else if (currentGrinderZone != null)
+        {
+            Debug.Log("Snapping to Grinder Zone");
+            currentGrinderZone.TrySnapPortafilter(this);
+        }
+        else
+        {
+            Debug.Log("No snap zone available!");
         }
     }
 
-    public void SetSnapZone(GrinderSnapZone zone)
+    // Für Grinder SnapZone
+    public void SetGrinderSnapZone(GrinderSnapZone zone)
     {
-        currentSnapZone = zone;
-    }
-
-    public void ClearSnapZone(GrinderSnapZone zone)
-    {
-        if (currentSnapZone == zone)
-            currentSnapZone = null;
+        currentGrinderZone = zone;
+        Debug.Log("Grinder snap zone set");
     }
     
-  
+    public void ClearGrinderSnapZone()
+    {
+        currentGrinderZone = null;
+        Debug.Log("Grinder snap zone cleared");
+    }
+    
+    // Für Espresso SnapZone
+    public void SetEspressoSnapZone(FilterSnapZone zone)
+    {
+        currentEspressoZone = zone;
+        Debug.Log("Espresso snap zone set");
+    }
+    
+    public void ClearEspressoSnapZone()
+    {
+        currentEspressoZone = null;
+        Debug.Log("Espresso snap zone cleared");
+    }
+    
+    // Coffee Grounds Methoden
     public void AddGrounds()
     {
         hasGrounds = true;
         if (coffeeGroundsVisual != null)
         {
             coffeeGroundsVisual.SetActive(true);
+            Debug.Log("☕ Coffee grounds VISIBLE in portafilter!");
         }
     }
     

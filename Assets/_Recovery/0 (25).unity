@@ -6057,7 +6057,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EspressoFilterDetector
   machine: {fileID: 1442360791}
-  taskManager: {fileID: 1922775808}
+  taskManager: {fileID: 0}
 --- !u!1 &1749883406
 GameObject:
   m_ObjectHideFlags: 0
@@ -11128,8 +11128,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1833023385}
   - component: {fileID: 1833023388}
+  - component: {fileID: 1833023387}
   - component: {fileID: 1833023386}
-  - component: {fileID: 1833023389}
   m_Layer: 0
   m_Name: FilterSnapZone
   m_TagString: Untagged
@@ -11146,8 +11146,8 @@ Transform:
   m_GameObject: {fileID: 1833023384}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.315, y: 1.221, z: -0.185}
-  m_LocalScale: {x: 0.5, y: 0.121642955, z: 0.5}
+  m_LocalPosition: {x: -4.315, y: 1.223, z: -0.185}
+  m_LocalScale: {x: 0.5, y: 0.22684, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1766194608}
@@ -11225,6 +11225,23 @@ MonoBehaviour:
   m_SocketScaleMode: 0
   m_FixedScale: {x: 1, y: 1, z: 1}
   m_TargetBoundsSize: {x: 1, y: 1, z: 1}
+--- !u!114 &1833023387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833023384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1317f8752a943b7b169c166c67221b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrinderSnapZone
+  zoneType: 1
+  grinder: {fileID: 6204740713488029293}
+  espressoMachine: {fileID: 1442360791}
+  taskManager: {fileID: 1922775808}
+  snapPoint: {fileID: 1750483058}
 --- !u!65 &1833023388
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11246,21 +11263,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1833023389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1833023384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb1ce096e575f64297401448f1fa856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FilterSnapZone
-  espressoMachine: {fileID: 1442360791}
-  taskManager: {fileID: 1922775808}
-  snapPoint: {fileID: 1750483058}
 --- !u!1001 &1859888138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12395,10 +12397,6 @@ PrefabInstance:
       propertyPath: taskManager
       value: 
       objectReference: {fileID: 1922775808}
-    - target: {fileID: 1366309806576069507, guid: 8729872b4399695438044e80a6524fd6, type: 3}
-      propertyPath: espressoMachine
-      value: 
-      objectReference: {fileID: 1442360791}
     - target: {fileID: 2658825377859128291, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.06
@@ -12413,11 +12411,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8235034754926511463, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.31881088
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 8235034754926511463, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.037
+      value: 1.0543
       objectReference: {fileID: 0}
     - target: {fileID: 8500371508173530277, guid: 8729872b4399695438044e80a6524fd6, type: 3}
       propertyPath: m_Name
@@ -12845,7 +12843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5516194040100745281, guid: 302d350b45d7ad84fbd821501e742f85, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.847
+      value: 0.88426
       objectReference: {fileID: 0}
     - target: {fileID: 5516194040100745281, guid: 302d350b45d7ad84fbd821501e742f85, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12970,11 +12968,11 @@ PrefabInstance:
     - target: {fileID: 9143752106158419796, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
       propertyPath: taskManager
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1922775808}
     - target: {fileID: 9143752106158419796, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
       propertyPath: espressoMachine
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1442360791}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13117,10 +13115,6 @@ PrefabInstance:
     - target: {fileID: 1722273378364300026, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
       propertyPath: m_Layer
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2066428954880000064, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.859
       objectReference: {fileID: 0}
     - target: {fileID: 2648935087603100052, guid: 880b1b47f12b7b049bb7c0b40da7db18, type: 3}
       propertyPath: m_Layer

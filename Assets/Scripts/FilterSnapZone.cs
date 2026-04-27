@@ -1,8 +1,9 @@
 using UnityEngine;
 
-public class GrinderSnapZone : MonoBehaviour
+public class FilterSnapZone : MonoBehaviour
 {
-    public CoffeeGrinderController grinder;
+    public EspressoMachineController espressoMachine;
+    public TaskListManager taskManager;
     public Transform snapPoint;
     
     private void OnTriggerEnter(Collider other)
@@ -10,7 +11,7 @@ public class GrinderSnapZone : MonoBehaviour
         PortafilterXR portafilter = other.GetComponent<PortafilterXR>();
         if (portafilter != null)
         {
-            portafilter.SetGrinderSnapZone(this);
+            portafilter.SetEspressoSnapZone(this);
         }
     }
     
@@ -19,7 +20,9 @@ public class GrinderSnapZone : MonoBehaviour
         PortafilterXR portafilter = other.GetComponent<PortafilterXR>();
         if (portafilter != null)
         {
-            portafilter.ClearGrinderSnapZone();
+            portafilter.ClearEspressoSnapZone();
+            if (espressoMachine != null)
+                espressoMachine.SetFilter(false);
         }
     }
     
@@ -33,10 +36,16 @@ public class GrinderSnapZone : MonoBehaviour
             return;
         }
         
-        // Grinder benachrichtigen
-        if (grinder != null)
+        // Espresso Machine benachrichtigen
+        if (espressoMachine != null)
         {
-            grinder.AddFilter(portafilter);
+            espressoMachine.SetFilter(true);
+        }
+        
+        // Task 3: Filter in Espresso Machine
+        if (taskManager != null)
+        {
+            taskManager.OnFilterInMachine();
         }
         
         // Snapping Code

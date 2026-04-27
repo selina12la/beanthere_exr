@@ -2,31 +2,27 @@ using UnityEngine;
 
 public class MugSnapZone : MonoBehaviour
 {
-    public EspressoMachineController machine;
+    public EspressoMachineController espressoMachine;
     public TaskListManager taskManager;
     public Transform snapPoint;
-    
-    private bool isMugSnapped = false;
 
     private void OnTriggerEnter(Collider other)
     {
-        MugXR mug = other.GetComponentInParent<MugXR>();
-        
-        if (mug != null && !isMugSnapped)
+        MugXR mug = other.GetComponent<MugXR>();
+        if (mug != null)
         {
-            isMugSnapped = true;
             mug.SetSnapZone(this);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        MugXR mug = other.GetComponentInParent<MugXR>();
-        
-        if (mug != null && isMugSnapped)
+        MugXR mug = other.GetComponent<MugXR>();
+        if (mug != null)
         {
-            isMugSnapped = false;
             mug.ClearSnapZone(this);
+            if (espressoMachine != null)
+                espressoMachine.SetMug(false);
         }
     }
 
@@ -36,16 +32,22 @@ public class MugSnapZone : MonoBehaviour
         if (mug.grabInteractable.isSelected) return;
         if (mug.snapAnchor == null)
         {
+            Debug.LogWarning("MugSnapAnchor fehlt!");
             return;
         }
         
-        if (machine != null)
-        {
-            machine.SetMug(true);
-        }
+        Debug.Log("✅ Mug snapped into Espresso Machine");
         
-        if (taskManager != null)
-            taskManager.OnMugInMachine();
+        if (espressoMachine != null)
+        {
+            espressoMachine.SetMug(true);
+            
+            if (taskManager != null)
+            {
+                taskManager.OnMugInMachine();
+                Debug.Log("📋 Task 4 completed: Mug in Espresso Machine");
+            }
+        }
 
         Transform root = mug.transform;
         Transform anchor = mug.snapAnchor;
