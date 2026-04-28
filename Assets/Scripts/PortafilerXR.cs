@@ -30,6 +30,17 @@ public class PortafilterXR : MonoBehaviour
             coffeeGroundsVisual.SetActive(false);
         
         Debug.Log("CoffeeGrounds visual found and hidden");
+        
+        // WICHTIG: Stelle sicher dass der Portafilter einen Collider hat
+        Collider col = GetComponent<Collider>();
+        if (col == null)
+        {
+            Debug.LogError("❌ Portafilter has NO COLLIDER! Add a BoxCollider!");
+        }
+        else
+        {
+            Debug.Log($"✅ Portafilter has Collider: {col.GetType().Name}, IsTrigger: {col.isTrigger}");
+        }
     }
 
     private void OnEnable()
@@ -42,6 +53,51 @@ public class PortafilterXR : MonoBehaviour
     {
         grabInteractable.selectExited.RemoveListener(OnReleased);
         grabInteractable.selectEntered.RemoveListener(OnGrabbed);
+    }
+
+    // NEU: Trigger Erkennung für SnapZones
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("GrinderZone"))
+        {
+            GrinderSnapZone grinderZone = other.GetComponent<GrinderSnapZone>();
+            if (grinderZone != null)
+            {
+                Debug.Log("Entered GRINDER zone");
+                SetGrinderSnapZone(grinderZone);
+            }
+        }
+        else if (other.CompareTag("EspressoZone"))
+        {
+            FilterSnapZone espressoZone = other.GetComponent<FilterSnapZone>();
+            if (espressoZone != null)
+            {
+                Debug.Log("Entered ESPRESSO zone");
+                SetEspressoSnapZone(espressoZone);
+            }
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log($"🔴 PORTAFILTER: OnTriggerExit with {other.gameObject.name}");
+        
+        GrinderSnapZone grinderZone = other.GetComponent<GrinderSnapZone>();
+        if (grinderZone != null && currentGrinderZone == grinderZone)
+        {
+            ClearGrinderSnapZone();
+        }
+        
+        FilterSnapZone espressoZone = other.GetComponent<FilterSnapZone>();
+        if (espressoZone != null && currentEspressoZone == espressoZone)
+        {
+            ClearEspressoSnapZone();
+            if (currentEspressoZone == null)
+            {
+                // Optional: Benachrichtige Espresso Machine dass Filter weg ist
+                // Finde die Espresso Machine und rufe SetFilter(false) auf
+            }
+        }
     }
 
     private void OnGrabbed(SelectEnterEventArgs args)
@@ -57,6 +113,8 @@ public class PortafilterXR : MonoBehaviour
 
     private void OnReleased(SelectExitEventArgs args)
     {
+        Debug.Log($"🎯 Portafilter released. currentEspressoZone={currentEspressoZone != null}, currentGrinderZone={currentGrinderZone != null}");
+        
         // Priorität: Espresso Zone zuerst, dann Grinder Zone
         if (currentEspressoZone != null)
         {
@@ -92,12 +150,28 @@ public class PortafilterXR : MonoBehaviour
     {
         currentEspressoZone = zone;
         Debug.Log("Espresso snap zone set");
-    }
     
+        // Benachrichtige dass der Portafilter jetzt in der Espresso Machine ist
+        NotifyFilterDetector(false);
+    }
+
     public void ClearEspressoSnapZone()
     {
         currentEspressoZone = null;
         Debug.Log("Espresso snap zone cleared");
+    
+        // Benachrichtige dass der Portafilter nicht mehr in der Espresso Machine ist
+        NotifyFilterDetector(true);
+    }
+
+    private void NotifyFilterDetector(bool isAvailableForGrinder)
+    {
+        FilterDetector detector = FindFirstObjectByType<FilterDetector>();
+        if (detector != null)
+        {
+            // Hier könntest du eine Methode aufrufen die den Detector deaktiviert
+            // Oder einfach eine Variable setzen
+        }
     }
     
     // Coffee Grounds Methoden
@@ -109,6 +183,11 @@ public class PortafilterXR : MonoBehaviour
             coffeeGroundsVisual.SetActive(true);
             Debug.Log("☕ Coffee grounds VISIBLE in portafilter!");
         }
+    }
+    
+    public bool HasGrinderZone()
+    {
+        return currentGrinderZone != null;
     }
     
     public void RemoveGrounds()

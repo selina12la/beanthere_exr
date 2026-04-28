@@ -7,6 +7,8 @@ TagManager:
   - Mug
   - CoffeeBeans
   - Portafilter
+  - EspressoZone
+  - GrinderZone
   layers:
   - Default
   - TransparentFX

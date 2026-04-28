@@ -12,26 +12,28 @@ public class EspressoMachineController : MonoBehaviour
     private bool isBrewing = false;
     private Coroutine brewingCoroutine;
     
-    private GameObject currentMug;
-    public void SetMug(bool state)
-    {
-        mugInserted = state;
-        CheckStartCondition();
-    }
     public void SetFilter(bool state)
     {
         filterInserted = state;
+        Debug.Log($"🔵 ESPRESSO SetFilter called: {state} (mug={mugInserted}, filter={filterInserted})");
         CheckStartCondition();
     }
- 
-    public void SetCurrentMug(GameObject mug)
+
+    public void SetMug(bool state)
     {
-        currentMug = mug;
+        mugInserted = state;
+        Debug.Log($"🔵 ESPRESSO SetMug called: {state} (mug={mugInserted}, filter={filterInserted})");
+        CheckStartCondition();
     }
+
     private void CheckStartCondition()
     {
+        Debug.Log($"🔍 CheckStartCondition: mug={mugInserted}, filter={filterInserted}, isBrewing={isBrewing}");
+    
+        // WICHTIG: Prüfe ob BEIDE true sind
         if (mugInserted && filterInserted && !isBrewing)
         {
+            Debug.Log("✅✅✅ STARTING ESPRESSO MACHINE! ✅✅✅");
             StartCoffee();
         }
     }

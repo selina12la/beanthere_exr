@@ -1589,6 +1589,17 @@ Transform:
   - {fileID: 2125096524}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &646120532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9143752106158419796, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
+  m_PrefabInstance: {fileID: 6204740713488029291}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1317f8752a943b7b169c166c67221b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GrinderSnapZone
 --- !u!1 &712136849
 GameObject:
   m_ObjectHideFlags: 0
@@ -4878,7 +4889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EspressoMachineController
   coffeeParticles: {fileID: 1772415365}
   coffeeSound: {fileID: 1442360790}
-  brewingDuration: 3
+  brewingDuration: 15
   loopSound: 1
 --- !u!1 &1571993796
 GameObject:
@@ -11132,7 +11143,7 @@ GameObject:
   - component: {fileID: 1833023389}
   m_Layer: 0
   m_Name: FilterSnapZone
-  m_TagString: Untagged
+  m_TagString: EspressoZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11244,8 +11255,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 0.65, z: 0.5}
+  m_Center: {x: 0, y: -0.09, z: 0}
 --- !u!114 &1833023389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12912,13 +12923,29 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4775804758274115397, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
+      propertyPath: grinderSnapZone
+      value: 
+      objectReference: {fileID: 646120532}
+    - target: {fileID: 4775804758274115397, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
       propertyPath: currentPortafilter
       value: 
       objectReference: {fileID: 8589808829588323215}
+    - target: {fileID: 4978712456312013520, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749052445553671234, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
+      propertyPath: m_TagString
+      value: GrinderZone
+      objectReference: {fileID: 0}
     - target: {fileID: 8448428468823220049, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
       propertyPath: taskManager
       value: 
       objectReference: {fileID: 1922775808}
+    - target: {fileID: 8448428468823220049, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
+      propertyPath: currentPortafilter
+      value: 
+      objectReference: {fileID: 8589808829588323215}
     - target: {fileID: 8639479299672842495, guid: 62154fe1e078db64bade8f398686fa8c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
