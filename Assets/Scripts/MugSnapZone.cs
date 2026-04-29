@@ -47,7 +47,7 @@ public class MugSnapZone : MonoBehaviour
     public void TrySnapMug(MugXR mug)
     {
         Debug.Log("🔥 TrySnapMug called!");
-        
+    
         if (mug == null) return;
         if (mug.grabInteractable.isSelected) return;
         if (mug.snapAnchor == null)
@@ -55,12 +55,12 @@ public class MugSnapZone : MonoBehaviour
             Debug.LogWarning("MugSnapAnchor fehlt!");
             return;
         }
-        
+    
         if (espressoMachine != null)
         {
-            espressoMachine.SetMug(true);
+            espressoMachine.SetMug(true, mug);  // HIER den mug übergeben!
             Debug.Log("✅ Espresso Machine: SetMug(true) called");
-            
+        
             if (taskManager != null)
             {
                 taskManager.OnMugInMachine();
@@ -68,7 +68,7 @@ public class MugSnapZone : MonoBehaviour
             }
         }
 
-        // Snapping Code
+        // Snapping Code...
         Transform root = mug.transform;
         Transform anchor = mug.snapAnchor;
 
@@ -85,7 +85,7 @@ public class MugSnapZone : MonoBehaviour
         root.rotation = snapPoint.rotation * Quaternion.Inverse(anchor.localRotation);
         root.position = snapPoint.position - (root.rotation * anchor.localPosition);
         root.SetParent(snapPoint, true);
-        
+    
         Debug.Log("✅ Mug snapped to Espresso Machine!");
     }
 }

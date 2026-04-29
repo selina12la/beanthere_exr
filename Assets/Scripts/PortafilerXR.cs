@@ -14,7 +14,6 @@ public class PortafilterXR : MonoBehaviour
     public GameObject coffeeGroundsVisual; 
     public bool hasGrounds = false;
     
-    // Zwei verschiedene SnapZones
     private GrinderSnapZone currentGrinderZone;
     private FilterSnapZone currentEspressoZone;
 
@@ -31,7 +30,6 @@ public class PortafilterXR : MonoBehaviour
         
         Debug.Log("CoffeeGrounds visual found and hidden");
         
-        // WICHTIG: Stelle sicher dass der Portafilter einen Collider hat
         Collider col = GetComponent<Collider>();
         if (col == null)
         {
@@ -55,9 +53,17 @@ public class PortafilterXR : MonoBehaviour
         grabInteractable.selectEntered.RemoveListener(OnGrabbed);
     }
 
-    // NEU: Trigger Erkennung für SnapZones
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log($"🔍 PORTAFILTER TRIGGER DETECTED: {other.gameObject.name} | Tag: {other.tag} | Has Component: {other.GetComponent<PortafilterXR>() != null}");
+    
+        // IGNORIERE MugSnapZone komplett!
+        if (other.CompareTag("MugSnapZone"))
+        {
+            Debug.Log("Portafilter entered MugSnapZone - IGNORING!");
+            return;
+        }
+    
         if (other.CompareTag("GrinderZone"))
         {
             GrinderSnapZone grinderZone = other.GetComponent<GrinderSnapZone>();
@@ -76,27 +82,26 @@ public class PortafilterXR : MonoBehaviour
                 SetEspressoSnapZone(espressoZone);
             }
         }
+        else
+        {
+            Debug.Log($"Portafilter entered unknown zone: {other.gameObject.name} (Tag: {other.tag})");
+        }
     }
     
     private void OnTriggerExit(Collider other)
     {
+        // IGNORIERE MugSnapZone komplett!
+        if (other.CompareTag("MugSnapZone")) return;
+        
         Debug.Log($"🔴 PORTAFILTER: OnTriggerExit with {other.gameObject.name}");
         
-        GrinderSnapZone grinderZone = other.GetComponent<GrinderSnapZone>();
-        if (grinderZone != null && currentGrinderZone == grinderZone)
+        if (other.CompareTag("GrinderZone"))
         {
             ClearGrinderSnapZone();
         }
-        
-        FilterSnapZone espressoZone = other.GetComponent<FilterSnapZone>();
-        if (espressoZone != null && currentEspressoZone == espressoZone)
+        else if (other.CompareTag("EspressoZone"))
         {
             ClearEspressoSnapZone();
-            if (currentEspressoZone == null)
-            {
-                // Optional: Benachrichtige Espresso Machine dass Filter weg ist
-                // Finde die Espresso Machine und rufe SetFilter(false) auf
-            }
         }
     }
 
@@ -115,7 +120,6 @@ public class PortafilterXR : MonoBehaviour
     {
         Debug.Log($"🎯 Portafilter released. currentEspressoZone={currentEspressoZone != null}, currentGrinderZone={currentGrinderZone != null}");
         
-        // Priorität: Espresso Zone zuerst, dann Grinder Zone
         if (currentEspressoZone != null)
         {
             Debug.Log("Snapping to Espresso Machine Zone");
@@ -132,7 +136,6 @@ public class PortafilterXR : MonoBehaviour
         }
     }
 
-    // Für Grinder SnapZone
     public void SetGrinderSnapZone(GrinderSnapZone zone)
     {
         currentGrinderZone = zone;
@@ -145,36 +148,18 @@ public class PortafilterXR : MonoBehaviour
         Debug.Log("Grinder snap zone cleared");
     }
     
-    // Für Espresso SnapZone
     public void SetEspressoSnapZone(FilterSnapZone zone)
     {
         currentEspressoZone = zone;
         Debug.Log("Espresso snap zone set");
-    
-        // Benachrichtige dass der Portafilter jetzt in der Espresso Machine ist
-        NotifyFilterDetector(false);
     }
 
     public void ClearEspressoSnapZone()
     {
         currentEspressoZone = null;
         Debug.Log("Espresso snap zone cleared");
-    
-        // Benachrichtige dass der Portafilter nicht mehr in der Espresso Machine ist
-        NotifyFilterDetector(true);
-    }
-
-    private void NotifyFilterDetector(bool isAvailableForGrinder)
-    {
-        FilterDetector detector = FindFirstObjectByType<FilterDetector>();
-        if (detector != null)
-        {
-            // Hier könntest du eine Methode aufrufen die den Detector deaktiviert
-            // Oder einfach eine Variable setzen
-        }
     }
     
-    // Coffee Grounds Methoden
     public void AddGrounds()
     {
         hasGrounds = true;
@@ -183,11 +168,6 @@ public class PortafilterXR : MonoBehaviour
             coffeeGroundsVisual.SetActive(true);
             Debug.Log("☕ Coffee grounds VISIBLE in portafilter!");
         }
-    }
-    
-    public bool HasGrinderZone()
-    {
-        return currentGrinderZone != null;
     }
     
     public void RemoveGrounds()
@@ -201,5 +181,10 @@ public class PortafilterXR : MonoBehaviour
     public bool HasGrounds()
     {
         return hasGrounds;
+    }
+    
+    public bool HasGrinderZone()
+    {
+        return currentGrinderZone != null;
     }
 }

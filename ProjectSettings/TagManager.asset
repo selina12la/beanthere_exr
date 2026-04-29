@@ -9,6 +9,8 @@ TagManager:
   - Portafilter
   - EspressoZone
   - GrinderZone
+  - Anchor
+  - MugSnapZone
   layers:
   - Default
   - TransparentFX

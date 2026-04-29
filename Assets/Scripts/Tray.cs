@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
 
-public class Tray: MonoBehaviour
+public class Tray : MonoBehaviour
 {
     [Header("References")]
     public GameCompletionManager gameManager;
+    public TaskListManager taskManager;  // NEU: TaskManager Referenz
     
     [Header("Settings")]
     public float requiredStayTime = 2f;  
@@ -22,7 +23,7 @@ public class Tray: MonoBehaviour
         {
             currentMug = other.gameObject;
             stayTimer = 0f;
-            Debug.Log($"Mug placed on tablet! Waiting {requiredStayTime} seconds...");
+            Debug.Log($"Mug placed on tray! Waiting {requiredStayTime} seconds...");
         }
     }
     
@@ -37,8 +38,16 @@ public class Tray: MonoBehaviour
             if (stayTimer >= requiredStayTime)
             {
                 isProcessing = true;
-                Debug.Log("Coffee delivered! Level complete!");
+                Debug.Log("✅ Coffee delivered! Task 5 complete!");
                 
+                // Task 5: Mug on Tray
+                if (taskManager != null)
+                {
+                    taskManager.OnMugOnTray();
+                    Debug.Log("📋 Task 5 completed: Mug on serving tray");
+                }
+                
+                // Optional: Level Completion
                 if (gameManager != null)
                     gameManager.CompleteLevel(currentMug);
             }
@@ -53,7 +62,7 @@ public class Tray: MonoBehaviour
         {
             currentMug = null;
             stayTimer = 0f;
-            Debug.Log("Mug removed from tablet - timer reset");
+            Debug.Log("Mug removed from tray - timer reset");
         }
     }
 }
