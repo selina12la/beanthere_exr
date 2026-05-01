@@ -9,16 +9,13 @@ public class MugSnapZone : MonoBehaviour
     void Start()
     {
         Debug.Log($"🔥 MugSnapZone STARTED on {gameObject.name}");
-        Debug.Log($"   - Position: {transform.position}");
-        Debug.Log($"   - Has Collider: {GetComponent<Collider>() != null}");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // NUR auf Mug reagieren!
         if (!other.CompareTag("Mug")) return;
     
-        Debug.Log($"🔥🔥🔥 MUG TRIGGER: {other.gameObject.name} (Tag: {other.tag})");
+        Debug.Log($"🔥🔥🔥 MUG TRIGGER: {other.gameObject.name}");
     
         MugXR mug = other.GetComponent<MugXR>();
         if (mug == null)
@@ -26,7 +23,6 @@ public class MugSnapZone : MonoBehaviour
     
         if (mug != null)
         {
-            Debug.Log("✅ Mug found! Setting snap zone");
             mug.SetSnapZone(this);
         }
     }
@@ -40,7 +36,6 @@ public class MugSnapZone : MonoBehaviour
         if (mug != null)
         {
             mug.ClearSnapZone(this);
-            // KEIN espressoMachine.SetMug(false) hier!
         }
     }
 
@@ -58,29 +53,20 @@ public class MugSnapZone : MonoBehaviour
     
         if (espressoMachine != null)
         {
-            espressoMachine.SetMug(true, mug);  // HIER den mug übergeben!
+            espressoMachine.SetMug(true, mug);
             Debug.Log("✅ Espresso Machine: SetMug(true) called");
         
             if (taskManager != null)
             {
                 taskManager.OnMugInMachine();
-                Debug.Log("📋 Task 4 completed: Mug in Espresso Machine");
             }
         }
 
-        // Snapping Code...
+        // WICHTIG: Nichts am Rigidbody ändern! Nicht Kinematic setzen!
         Transform root = mug.transform;
         Transform anchor = mug.snapAnchor;
 
-        Rigidbody rb = mug.rb;
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = true;
-            rb.useGravity = false;
-        }
-
+        // Nur Position und Rotation ändern, keine Physik-Einstellungen!
         root.SetParent(null);
         root.rotation = snapPoint.rotation * Quaternion.Inverse(anchor.localRotation);
         root.position = snapPoint.position - (root.rotation * anchor.localPosition);

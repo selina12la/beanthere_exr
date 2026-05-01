@@ -10,10 +10,12 @@ public class MugXR : MonoBehaviour
     public Transform snapAnchor;
     
     [Header("Coffee Liquid")]
-    public GameObject coffeeLiquidVisual;  // Der braune Zylinder
+    public GameObject coffeeLiquidVisual;
     public bool hasCoffee = false;
 
     private MugSnapZone currentSnapZone;
+    private Vector3 startPosition;
+    private Quaternion startRotation;
 
     private void Awake()
     {
@@ -23,9 +25,12 @@ public class MugXR : MonoBehaviour
         if (rb == null)
             rb = GetComponent<Rigidbody>();
             
-        // Coffee Liquid am Anfang ausblenden
         if (coffeeLiquidVisual != null)
             coffeeLiquidVisual.SetActive(false);
+        
+        // Speichere Startposition für Reset
+        startPosition = transform.position;
+        startRotation = transform.rotation;
     }
 
     private void OnEnable()
@@ -40,21 +45,13 @@ public class MugXR : MonoBehaviour
         grabInteractable.selectEntered.RemoveListener(OnGrabbed);
     }
 
-    private void OnGrabbed(SelectEnterEventArgs args)
-    {
-        transform.SetParent(null);
-
-        if (rb != null)
-        {
-            rb.isKinematic = false;
-            rb.useGravity = true;
-        }
-    }
-
     private void OnReleased(SelectExitEventArgs args)
     {
+        Debug.Log($"🎯 Mug OnReleased called! currentSnapZone={currentSnapZone != null}");
+    
         if (currentSnapZone != null)
         {
+            // NICHT hier den Rigidbody ändern!
             currentSnapZone.TrySnapMug(this);
         }
         else
@@ -63,11 +60,16 @@ public class MugXR : MonoBehaviour
         }
     }
 
+    private void OnGrabbed(SelectEnterEventArgs args)
+    {
+        transform.SetParent(null);
+        // NICHT hier den Rigidbody ändern!
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log($"🔍 MUG TRIGGER DETECTED: {other.gameObject.name} | Tag: {other.tag}");
     
-        // NUR auf MugSnapZone reagieren!
         if (!other.CompareTag("MugSnapZone"))
         {
             Debug.Log($"Mug ignored zone: {other.gameObject.name} (Tag: {other.tag})");
@@ -107,9 +109,11 @@ public class MugXR : MonoBehaviour
         }
         currentSnapZone = null;
         transform.SetParent(null);
+        transform.position = startPosition;
+        transform.rotation = startRotation;
+        RemoveCoffee(); // Kaffee entfernen beim Reset
     }
     
-    // NEUE METHODEN für Coffee Liquid
     public void AddCoffee()
     {
         hasCoffee = true;
