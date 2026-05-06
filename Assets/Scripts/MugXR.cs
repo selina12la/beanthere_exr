@@ -1,57 +1,59 @@
 ﻿using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
-
+ 
 public class MugXR : MonoBehaviour
 {
     public XRGrabInteractable grabInteractable;
     public Rigidbody rb;
-
     public Transform snapAnchor;
-    
-    [Header("Coffee Liquid")]
-    public GameObject coffeeLiquidVisual;
+    [Header("Liquid Visuals")]
+    public GameObject coffeeVisual;    
+    public GameObject latteVisual;    
+    [Header("States")]
     public bool hasCoffee = false;
-
+    public bool hasMilk = false;
+ 
     private MugSnapZone currentSnapZone;
-    private Vector3 startPosition;
-    private Quaternion startRotation;
-
+ 
     private void Awake()
     {
         if (grabInteractable == null)
             grabInteractable = GetComponent<XRGrabInteractable>();
-
         if (rb == null)
             rb = GetComponent<Rigidbody>();
-            
-        if (coffeeLiquidVisual != null)
-            coffeeLiquidVisual.SetActive(false);
-        
-        // Speichere Startposition für Reset
-        startPosition = transform.position;
-        startRotation = transform.rotation;
+        if (coffeeVisual != null)
+            coffeeVisual.SetActive(false);
+        if (latteVisual != null)
+            latteVisual.SetActive(false);
     }
-
+ 
     private void OnEnable()
     {
         grabInteractable.selectExited.AddListener(OnReleased);
         grabInteractable.selectEntered.AddListener(OnGrabbed);
     }
-
+ 
     private void OnDisable()
     {
         grabInteractable.selectExited.RemoveListener(OnReleased);
         grabInteractable.selectEntered.RemoveListener(OnGrabbed);
     }
-
+ 
+    private void OnGrabbed(SelectEnterEventArgs args)
+    {
+        transform.SetParent(null);
+        if (rb != null)
+        {
+            rb.isKinematic = false;
+            rb.useGravity = true;
+        }
+    }
+ 
     private void OnReleased(SelectExitEventArgs args)
     {
-        Debug.Log($"🎯 Mug OnReleased called! currentSnapZone={currentSnapZone != null}");
-    
         if (currentSnapZone != null)
         {
-            // NICHT hier den Rigidbody ändern!
             currentSnapZone.TrySnapMug(this);
         }
         else
@@ -59,45 +61,28 @@ public class MugXR : MonoBehaviour
             Debug.Log("Mug released - no snap zone!");
         }
     }
-
-    private void OnGrabbed(SelectEnterEventArgs args)
-    {
-        transform.SetParent(null);
-        // NICHT hier den Rigidbody ändern!
-    }
-
+ 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"🔍 MUG TRIGGER DETECTED: {other.gameObject.name} | Tag: {other.tag}");
-    
         if (!other.CompareTag("MugSnapZone"))
-        {
-            Debug.Log($"Mug ignored zone: {other.gameObject.name} (Tag: {other.tag})");
             return;
-        }
-        
-        Debug.Log($"Mug entered MugSnapZone: {other.gameObject.name}");
-        
         MugSnapZone mugZone = other.GetComponent<MugSnapZone>();
         if (mugZone != null)
         {
             SetSnapZone(mugZone);
         }
     }
-
+ 
     public void SetSnapZone(MugSnapZone zone)
     {
         currentSnapZone = zone;
-        Debug.Log("Mug snap zone set");
     }
-
+ 
     public void ClearSnapZone(MugSnapZone zone)
     {
         if (currentSnapZone == zone)
             currentSnapZone = null;
-        Debug.Log("Mug snap zone cleared");
     }
-    
     public void ResetMug()
     {
         if (rb != null)
@@ -109,31 +94,54 @@ public class MugXR : MonoBehaviour
         }
         currentSnapZone = null;
         transform.SetParent(null);
-        transform.position = startPosition;
-        transform.rotation = startRotation;
-        RemoveCoffee(); // Kaffee entfernen beim Reset
+        ResetLiquid();  
     }
     
     public void AddCoffee()
     {
         hasCoffee = true;
-        if (coffeeLiquidVisual != null)
-        {
-            coffeeLiquidVisual.SetActive(true);
-            Debug.Log("☕ Coffee liquid VISIBLE in mug!");
-        }
+        hasMilk = false;
+        if (coffeeVisual != null)
+            coffeeVisual.SetActive(true);
+        if (latteVisual != null)
+            latteVisual.SetActive(false);
+        Debug.Log("Coffee in mug!");
     }
-    
-    public void RemoveCoffee()
+    public void AddMilk()
+    {
+        if (!hasCoffee)
+        {
+            Debug.Log("No coffee in mug to add milk!");
+            return;
+        }
+        hasMilk = true;
+       
+        if (coffeeVisual != null)
+            coffeeVisual.SetActive(false);
+        if (latteVisual != null)
+            latteVisual.SetActive(true);
+        Debug.Log("Latte ready! Coffee + Milk = Latte!");
+    }
+    // Alle Flüssigkeiten entfernen
+    public void ResetLiquid()
     {
         hasCoffee = false;
-        if (coffeeLiquidVisual != null)
-            coffeeLiquidVisual.SetActive(false);
-        Debug.Log("Coffee liquid removed from mug");
+        hasMilk = false;
+        if (coffeeVisual != null)
+            coffeeVisual.SetActive(false);
+        if (latteVisual != null)
+            latteVisual.SetActive(false);
     }
-    
     public bool HasCoffee()
     {
         return hasCoffee;
+    }
+    public bool HasMilk()
+    {
+        return hasMilk;
+    }
+    public bool IsLatte()
+    {
+        return hasCoffee && hasMilk;
     }
 }

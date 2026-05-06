@@ -34,7 +34,7 @@ public class GameCompletionManager : MonoBehaviour
         if (isLevelComplete) return;
         isLevelComplete = true;
         
-        Debug.Log("🏆 LEVEL COMPLETE! 🏆");
+        Debug.Log("LEVEL COMPLETE!");
         
         if (completionParticles != null)
             completionParticles.Play();

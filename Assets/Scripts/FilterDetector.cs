@@ -3,24 +3,22 @@ using UnityEngine;
 public class FilterDetector : MonoBehaviour
 {
     public CoffeeGrinderController grinder;
-    public GrinderSnapZone grinderSnapZone;  // NEU: Referenz zur Grinder SnapZone
+    public GrinderSnapZone grinderSnapZone; 
     
     private PortafilterXR currentPortafilter;
     
     public void OnFilterInserted()
     {
-        // Nur ausführen wenn der Portafilter tatsächlich im Grinder ist
         if (currentPortafilter != null && grinder != null)
         {
-            // Prüfe ob der Portafilter wirklich die GrinderSnapZone referenziert
             if (currentPortafilter.HasGrinderZone())
             {
                 grinder.AddFilter(currentPortafilter);
-                Debug.Log("✅ FilterDetector: Added filter to GRINDER");
+                Debug.Log("FilterDetector: Added filter to GRINDER");
             }
             else
             {
-                Debug.Log("❌ FilterDetector: Portafilter is NOT in grinder zone, ignoring");
+                Debug.Log("FilterDetector: Portafilter is NOT in grinder zone, ignoring");
             }
         }
         else

@@ -7,7 +7,6 @@ public class GrinderSnapZone : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        // NUR auf Portafilter reagieren!
         if (!other.CompareTag("Portafilter")) return;
     
         PortafilterXR portafilter = other.GetComponent<PortafilterXR>();
@@ -36,7 +35,6 @@ public class GrinderSnapZone : MonoBehaviour
             return;
         }
         
-        // Grinder benachrichtigen
         if (grinder != null)
         {
             grinder.AddFilter(portafilter);

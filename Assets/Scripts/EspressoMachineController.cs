@@ -5,7 +5,7 @@ public class EspressoMachineController : MonoBehaviour
 {
     private bool mugInserted = false;
     private bool filterInserted = false;
-    private MugXR currentMug;  // NEU: Referenz zum aktuellen Mug
+    private MugXR currentMug; 
 
     public ParticleSystem coffeeParticles;
     public AudioSource coffeeSound;
@@ -17,7 +17,7 @@ public class EspressoMachineController : MonoBehaviour
     public void SetFilter(bool state)
     {
         filterInserted = state;
-        Debug.Log($"🔵 ESPRESSO SetFilter called: {state} (mug={mugInserted}, filter={filterInserted})");
+        Debug.Log($"ESPRESSO SetFilter called: {state} (mug={mugInserted}, filter={filterInserted})");
         CheckStartCondition();
     }
 
@@ -26,17 +26,17 @@ public class EspressoMachineController : MonoBehaviour
         mugInserted = state;
         if (mug != null)
             currentMug = mug;
-        Debug.Log($"🔵 ESPRESSO SetMug called: {state} (mug={mugInserted}, filter={filterInserted})");
+        Debug.Log($"ESPRESSO SetMug called: {state} (mug={mugInserted}, filter={filterInserted})");
         CheckStartCondition();
     }
 
     private void CheckStartCondition()
     {
-        Debug.Log($"🔍 CheckStartCondition: mug={mugInserted}, filter={filterInserted}, isBrewing={isBrewing}");
+        Debug.Log($"CheckStartCondition: mug={mugInserted}, filter={filterInserted}, isBrewing={isBrewing}");
     
         if (mugInserted && filterInserted && !isBrewing)
         {
-            Debug.Log("✅✅✅ STARTING ESPRESSO MACHINE! ✅✅✅");
+            Debug.Log("STARTING ESPRESSO MACHINE!");
             StartCoffee();
         }
     }
@@ -44,7 +44,7 @@ public class EspressoMachineController : MonoBehaviour
     private void StartCoffee()
     {
         isBrewing = true;
-        Debug.Log($"☕ Coffee started for {brewingDuration} seconds!");
+        Debug.Log($"Coffee started for {brewingDuration} seconds!");
         
         if (coffeeParticles != null)
             coffeeParticles.Play();
@@ -75,13 +75,13 @@ public class EspressoMachineController : MonoBehaviour
         }
         
         isBrewing = false;
-        Debug.Log("☕ Coffee finished!");
+        Debug.Log("Coffee finished!");
         
         // NEU: Mug mit Kaffee füllen
         if (currentMug != null)
         {
             currentMug.AddCoffee();
-            Debug.Log("✅ Mug filled with coffee!");
+            Debug.Log("Mug filled with coffee!");
         }
         
         mugInserted = false;

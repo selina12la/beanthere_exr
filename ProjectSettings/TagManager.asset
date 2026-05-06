@@ -11,6 +11,9 @@ TagManager:
   - GrinderZone
   - Anchor
   - MugSnapZone
+  - MilkFrother
+  - MilkFrotherZone
+  - MilkDetector
   layers:
   - Default
   - TransparentFX

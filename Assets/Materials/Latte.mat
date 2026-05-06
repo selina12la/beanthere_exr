@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LiquidMaterial
+  m_Name: Latte
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 2100000, guid: 30cb0f8d3cc16c246a815d705ca484dd, type: 2}
   m_ModifiedSerializedProperties: 0
@@ -28,8 +28,8 @@ Material:
     m_Ints: []
     m_Floats: []
     m_Colors:
-    - _BaseColor: {r: 0.3679245, g: 0.16828687, b: 0.08156817, a: 1}
-    - _Color: {r: 0.36792448, g: 0.16828683, b: 0.081568144, a: 1}
+    - _BaseColor: {r: 0.76729554, g: 0.5498695, b: 0.32573858, a: 1}
+    - _Color: {r: 0.76729554, g: 0.54986936, b: 0.32573855, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &2470704429657436246
