@@ -1,13 +1,10 @@
-﻿namespace DefaultNamespace
+﻿public interface ITaskListManager
 {
-    public interface ITaskListManager
-    {
-        void OnBeansPoured();
-        void OnFilterGround();
-        void OnFilterInMachine();
-        void OnMugInMachine();
-        void OnMugOnTray();
-        void OnMilkSteamed();
-        void OnMilkPoured();
-    }
+    void OnBeansPoured();
+    void OnFilterGround();
+    void OnFilterInMachine();
+    void OnMugInMachine();
+    void OnMugOnTray();
+    void OnMilkSteamed();
+    void OnMilkPoured();
 }

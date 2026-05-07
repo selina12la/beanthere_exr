@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using DefaultNamespace;
 
 public class Tray : MonoBehaviour
 {

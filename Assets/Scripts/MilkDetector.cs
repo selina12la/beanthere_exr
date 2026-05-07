@@ -1,46 +1,74 @@
-using DefaultNamespace;
+// MilkDetector.cs - Mit Pouring Sound
 using UnityEngine;
+ 
 public class MilkDetector : MonoBehaviour
 {
-    private ITaskListManager taskManager;  // ← Interface
+    private ITaskListManager taskManager;
     private MugXR mugXR;
+    
+    [Header("Audio")]
+    public AudioSource milkPourSound;  // ← Neu: Sound beim Eingießen
+    
     private void Start()
     {
         taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
         mugXR = GetComponentInParent<MugXR>();
-        if (mugXR == null)
+        
+        Collider col = GetComponent<Collider>();
+        if (col != null && !col.isTrigger)
         {
-            Debug.LogError("MilkDetector: No MugXR found on parent!");
+            col.isTrigger = true;
         }
+        
+        Debug.Log($"✅ MilkDetector initialized on {transform.parent?.name ?? gameObject.name}");
     }
+    
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("MilkFrother"))
+        Debug.Log($"🔍 MilkDetector triggered by: {other.gameObject.name} (Tag: '{other.tag}')");
+        
+        MilkFrotherXR frother = other.GetComponent<MilkFrotherXR>();
+        if (frother == null)
+            frother = other.GetComponentInParent<MilkFrotherXR>();
+        
+        if (frother != null)
         {
-            MilkFrotherXR frother = other.GetComponent<MilkFrotherXR>();
-            if (frother != null && frother.HasMilk() && frother.IsSteamed())
+            Debug.Log($"✅ Found MilkFrotherXR! HasMilk={frother.HasMilk()}, IsSteamed={frother.IsSteamed()}");
+            
+            if (frother.HasMilk() && frother.IsSteamed())
             {
-                Debug.Log("🥛 Milk frother detected over mug! Pouring milk...");
-                if (mugXR != null)
+                Debug.Log("🥛 Conditions met! Pouring milk...");
+                
+                // ✨ Pouring Sound abspielen
+                if (milkPourSound != null)
+                {
+                    milkPourSound.Play();
+                    Debug.Log("🔊 Milk pouring sound played!");
+                }
+                
+                if (mugXR != null && mugXR.HasCoffee())
                 {
                     mugXR.AddMilk();
-                    Debug.Log("✅ Milk added to mug!");
+                    frother.RemoveMilk();
+                    
+                    if (taskManager != null)
+                    {
+                        taskManager.OnMilkPoured();
+                        Debug.Log("📋 Task 6 completed: Milk poured!");
+                    }
                 }
-                frother.RemoveMilk();
-                Debug.Log("✅ Milk removed from frother!");
-                if (taskManager != null)
+                else if (mugXR == null)
                 {
-                    taskManager.OnMilkPoured();
-                    Debug.Log("📋 Task 6 completed: Milk poured into coffee!");
+                    Debug.LogError("❌ mugXR is null!");
+                }
+                else if (!mugXR.HasCoffee())
+                {
+                    Debug.LogWarning("⚠️ No coffee in mug yet! Pour milk after coffee is made.");
                 }
             }
-            else if (frother != null && !frother.HasMilk())
+            else
             {
-                Debug.Log("No milk in frother!");
-            }
-            else if (frother != null && !frother.IsSteamed())
-            {
-                Debug.Log("Milk not steamed yet!");
+                Debug.Log($"⏳ Cannot pour: HasMilk={frother.HasMilk()}, IsSteamed={frother.IsSteamed()} (Both need to be true)");
             }
         }
     }

@@ -1,39 +1,36 @@
-using DefaultNamespace;
 using UnityEngine;
+
 public class MilkFrotherController : MonoBehaviour
 {
     [Header("Audio")]
-    public AudioSource milkPourSound;
-    public AudioSource frotherSound;
+    public AudioSource frotherSound;      // Sound beim Steamen
+    
     [Header("Visual")]
-    public ParticleSystem milkParticles;
-    public ParticleSystem frothParticles;
+    public ParticleSystem steamParticles; // Dampf-Particles beim Steamen
+    
     [Header("MilkFrother Reference")]
     public MilkFrotherXR currentMilkFrother;
-    private ITaskListManager taskManager;  // ← Interface
-    private bool hasMilk = false;
+    
+    private ITaskListManager taskManager;
     private bool hasFrother = false;
+    
     private void Start()
     {
         taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
+        Debug.Log($"MilkFrotherController started");
     }
-    public void AddMilk()
-    {
-        if (!hasMilk)
-        {
-            hasMilk = true;
-            if (milkPourSound != null) milkPourSound.Play();
-            if (milkParticles != null) milkParticles.Play();
-            CheckFrotherReady();
-        }
-    }
+    
     public void SetMilkFrotherSnapped(bool state, MilkFrotherXR frother)
     {
+        Debug.Log($"SetMilkFrotherSnapped: state={state}, frother={(frother != null ? "exists" : "null")}");
+        
         if (!hasFrother && state)
         {
             hasFrother = true;
             currentMilkFrother = frother;
-            CheckFrotherReady();
+            
+            // Sofort steamen (Milch ist schon von Anfang an da)
+            StartFrothing();
         }
         else if (!state)
         {
@@ -42,33 +39,67 @@ public class MilkFrotherController : MonoBehaviour
             StopFrother();
         }
     }
-    private void CheckFrotherReady()
-    {
-        if (hasMilk && hasFrother)
-        {
-            StartFrothing();
-        }
-    }
+    
     private void StartFrothing()
     {
-        if (frotherSound != null) frotherSound.Play();
-        if (frothParticles != null) frothParticles.Play();
-        Invoke(nameof(FinishFrothing), 2f);
+        Debug.Log("🔥 Frothing started - IMMEDIATELY STEAMED!");
+        
+        // Particles starten
+        if (steamParticles != null)
+        {
+            steamParticles.Play();
+            Debug.Log("💨 Steam particles started!");
+        }
+        
+        // Sound starten
+        if (frotherSound != null)
+        {
+            frotherSound.Play();
+            Debug.Log("🔊 Frother sound started!");
+        }
+        
+        // Sofort fertig
+        FinishFrothing();
     }
+    
     private void FinishFrothing()
     {
+        Debug.Log($"✅ FinishFrothing called! currentMilkFrother={(currentMilkFrother != null ? "exists" : "null")}");
+        
         if (currentMilkFrother != null)
         {
-            currentMilkFrother.AddMilk();
-            Debug.Log("Milk frothed!");
+            // Milch als gesteamt markieren
+            currentMilkFrother.SetSteamed();
+            Debug.Log("🥛 Milk steamed and ready to pour!");
+            
+            // Task 5 vervollständigen
             if (taskManager != null)
+            {
                 taskManager.OnMilkSteamed();
+                Debug.Log("📋 Task 5 completed: Milk steamed!");
+            }
+            else
+            {
+                Debug.LogError("❌ taskManager is NULL!");
+            }
         }
-        StopFrother();
+        
+        // Sound und Particles nach kurzer Zeit stoppen (für besseres Feedback)
+        Invoke(nameof(StopFrother), 1.5f);
     }
+    
     private void StopFrother()
     {
-        if (frotherSound != null) frotherSound.Stop();
-        if (frothParticles != null) frothParticles.Stop();
+        if (steamParticles != null)
+        {
+            steamParticles.Stop();
+            Debug.Log("💨 Steam particles stopped!");
+        }
+        
+        if (frotherSound != null)
+        {
+            frotherSound.Stop();
+            Debug.Log("🔊 Frother sound stopped!");
+        }
     }
 }
