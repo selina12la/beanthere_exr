@@ -23,7 +23,6 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
     
     private void CreateTaskList()
     {
-        // Prüfe ob Prefab und Container gesetzt sind
         if (taskItemPrefab == null)
         {
             Debug.LogError("taskItemPrefab is NULL! Assign it in the Inspector!");
@@ -36,7 +35,6 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
             return;
         }
         
-        // Alte Tasks löschen
         foreach (Transform child in taskContainer)
             Destroy(child.gameObject);
         taskItems.Clear();
@@ -56,7 +54,6 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
         {
             GameObject taskObj = Instantiate(taskItemPrefab, taskContainer);
             
-            // WICHTIG: TaskItem auf dem instantiierten GameObject suchen
             TaskItem taskItem = taskObj.GetComponent<TaskItem>();
             if (taskItem == null)
                 taskItem = taskObj.GetComponentInChildren<TaskItem>();

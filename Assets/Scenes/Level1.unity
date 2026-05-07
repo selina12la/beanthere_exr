@@ -5592,7 +5592,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7883ef7040af1d43a60dc035b149250, type: 2}
+  - {fileID: 2100000, guid: 1487f4ca17414a749b427eaf61c3a371, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6128,7 +6128,7 @@ MonoBehaviour:
   grabInteractable: {fileID: 209085354}
   rb: {fileID: 209085355}
   snapAnchor: {fileID: 1497441995}
-  coffeeGroundsVisual: {fileID: 0}
+  coffeeGroundsVisual: {fileID: 534572378}
   hasGrounds: 0
 --- !u!114 &209085354
 MonoBehaviour:
@@ -8001,6 +8001,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4241718790627425352, guid: c9524df98571fb04a9932047cc00875d, type: 3}
   m_PrefabInstance: {fileID: 532321019}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &534572378 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4334439213505720307, guid: 302d350b45d7ad84fbd821501e742f85, type: 3}
+  m_PrefabInstance: {fileID: 809348189}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &539443620
 PrefabInstance:
@@ -17581,7 +17586,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7883ef7040af1d43a60dc035b149250, type: 2}
+  - {fileID: 2100000, guid: 1487f4ca17414a749b427eaf61c3a371, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

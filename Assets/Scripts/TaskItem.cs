@@ -11,12 +11,13 @@ public class TaskItem : MonoBehaviour
     {
         taskDescription = description;
         
-        // Automatisch suchen falls nicht zugewiesen
         if (taskText == null)
         {
             taskText = GetComponent<TextMeshProUGUI>();
             if (taskText == null)
+            {
                 taskText = GetComponentInChildren<TextMeshProUGUI>();
+            }
         }
         
         if (taskText != null)

@@ -115,7 +115,7 @@ public class TaskListManagerLevel2 : MonoBehaviour, ITaskListManager
         if (!milkPoured && milkSteamed)
         {
             milkPoured = true;
-            CompleteTask(5);  // Task 6 (Index 5)
+            CompleteTask(5);
             Debug.Log("🥛 Milk poured! Task completed!");
         }
         else
