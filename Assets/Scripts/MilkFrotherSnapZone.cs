@@ -6,13 +6,6 @@ public class MilkFrotherSnapZone : MonoBehaviour
     public Transform snapPoint;
     public MilkSteamer milkSteamer;
 
-    private ITaskListManager taskManager;
-
-    private void Start()
-    {
-        taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("MilkFrother"))

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class MilkDetector : MonoBehaviour
 {
-    private ITaskListManager taskManager;
     private MugXR mugXR;
 
     [Header("Audio")] 
@@ -10,7 +9,6 @@ public class MilkDetector : MonoBehaviour
 
     private void Start()
     {
-        taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
         mugXR = GetComponentInParent<MugXR>();
 
         Collider col = GetComponent<Collider>();
@@ -42,10 +40,7 @@ public class MilkDetector : MonoBehaviour
                     mugXR.AddMilk();
                     frother.RemoveMilk();
 
-                    if (taskManager != null)
-                    {
-                        taskManager.OnMilkPoured();
-                    }
+                    TaskManagerLocator.Current?.OnMilkPoured();
                 }
             }
         }

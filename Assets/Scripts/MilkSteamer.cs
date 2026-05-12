@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class MilkSteamer : MonoBehaviour
 {
-    private ITaskListManager taskManager;
     public MilkFrotherSnapZone snapZone;
 
     private void Start()
     {
-        taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
         if (snapZone == null)
         {
             snapZone = GetComponent<MilkFrotherSnapZone>();
@@ -16,9 +14,6 @@ public class MilkSteamer : MonoBehaviour
 
     public void OnMilkSteamed()
     {
-        if (taskManager != null)
-        {
-            taskManager.OnMilkSteamed();
-        }
+        TaskManagerLocator.Current?.OnMilkSteamed();
     }
 }

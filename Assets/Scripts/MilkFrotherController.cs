@@ -11,13 +11,7 @@ public class MilkFrotherController : MonoBehaviour
     [Header("MilkFrother Reference")]
     public MilkFrotherXR currentMilkFrother;
     
-    private ITaskListManager taskManager;
     private bool hasFrother = false;
-    
-    private void Start()
-    {
-        taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
-    }
     
     public void SetMilkFrotherSnapped(bool state, MilkFrotherXR frother)
     {
@@ -58,10 +52,7 @@ public class MilkFrotherController : MonoBehaviour
             currentMilkFrother.SetSteamed();
             
             // Task 5
-            if (taskManager != null)
-            {
-                taskManager.OnMilkSteamed();
-            }
+            TaskManagerLocator.Current?.OnMilkSteamed();
         }
         Invoke(nameof(StopFrother), 5f);
     }

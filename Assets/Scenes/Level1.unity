@@ -6731,7 +6731,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 3a8d2db8e518bef429125f6f26ccc418, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7073,7 +7073,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e933e77fe4d82394e9cf4badec10944f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8601,9 +8601,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
   backgroundMusic: {fileID: 8300000, guid: ed2c90fecb66c204dbe5c1c96af2eba0, type: 3}
-  musicVolume: 0.05
+  musicVolume: 0.02
   ambianceSound: {fileID: 8300000, guid: 72b57d11aa45d5c4f95981e9e1e6e0fc, type: 3}
-  ambianceVolume: 0.7
+  ambianceVolume: 1
 --- !u!4 &634382196
 Transform:
   m_ObjectHideFlags: 0
@@ -9858,7 +9858,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 876d4dcb5c2e4504e96c4934d568cb98, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -11178,6 +11178,7 @@ MonoBehaviour:
   beansParticles: {fileID: 1361777325}
   grindParticles: {fileID: 169387458}
   currentPortafilter: {fileID: 209085353}
+  taskManager: {fileID: 1922775808}
 --- !u!82 &1290541969
 AudioSource:
   m_ObjectHideFlags: 0

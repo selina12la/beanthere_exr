@@ -15,14 +15,8 @@ public class CoffeeGrinderController : MonoBehaviour
     [Header("Portafilter Reference")]
     public PortafilterXR currentPortafilter;
     
-    private ITaskListManager taskManager;
     private bool hasBeans = false;
     private bool hasFilter = false;
-
-    private void Start()
-    {
-        taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
-    }
 
     public void AddBeans()
     {
@@ -32,10 +26,8 @@ public class CoffeeGrinderController : MonoBehaviour
             beansPourSound.Play();
             beansParticles.Play();
             CheckGrinderReady();
-            if (taskManager != null)
-            {
-                taskManager.OnBeansPoured();
-            }
+            
+            TaskManagerLocator.Current?.OnBeansPoured();
         }
     }
 
@@ -54,10 +46,8 @@ public class CoffeeGrinderController : MonoBehaviour
             currentPortafilter = portafilter;
             filterSnapSound.Play();
             CheckGrinderReady();
-            if (taskManager != null)
-            {
-                taskManager.OnFilterGround();
-            }
+            
+            TaskManagerLocator.Current?.OnFilterGround();
         }
     }
 

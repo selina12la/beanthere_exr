@@ -9,15 +9,9 @@ public class Tray : MonoBehaviour
     public EspressoMachineController espressoMachine;
     [Header("Settings")] public float requiredStayTime = 2f;
     public string requiredTag = "Mug";
-    private ITaskListManager taskManager;
     private GameObject currentMug = null;
     private float stayTimer = 0f;
     private bool isProcessing = false;
-
-    private void Start()
-    {
-        taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,10 +40,8 @@ public class Tray : MonoBehaviour
             if (stayTimer >= requiredStayTime)
             {
                 isProcessing = true;
-                if (taskManager != null)
-                {
-                    taskManager.OnMugOnTray();
-                }
+                
+                TaskManagerLocator.Current?.OnMugOnTray();
 
                 if (gameManager != null)
                 {

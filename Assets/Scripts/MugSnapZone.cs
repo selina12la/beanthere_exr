@@ -4,12 +4,6 @@ public class MugSnapZone : MonoBehaviour
 {
     public EspressoMachineController espressoMachine;
     public Transform snapPoint;
-    private ITaskListManager taskManager;
-
-    private void Start()
-    {
-        taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -58,10 +52,8 @@ public class MugSnapZone : MonoBehaviour
         if (espressoMachine != null)
         {
             espressoMachine.SetMug(true, mug);
-            if (taskManager != null)
-            {
-                taskManager.OnMugInMachine();
-            }
+            
+            TaskManagerLocator.Current?.OnMugInMachine();
         }
 
         Transform root = mug.transform;

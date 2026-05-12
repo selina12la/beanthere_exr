@@ -4,12 +4,6 @@ public class FilterSnapZone : MonoBehaviour
 {
     public EspressoMachineController espressoMachine;
     public Transform snapPoint;
-    private ITaskListManager taskManager;
-
-    private void Start()
-    {
-        taskManager = FindFirstObjectByType<MonoBehaviour>() as ITaskListManager;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -66,10 +60,7 @@ public class FilterSnapZone : MonoBehaviour
             espressoMachine.SetFilter(true);
         }
 
-        if (taskManager != null)
-        {
-            taskManager.OnFilterInMachine();
-        }
+        TaskManagerLocator.Current?.OnFilterInMachine();
 
         Transform root = portafilter.transform;
         Transform anchor = portafilter.snapAnchor;
