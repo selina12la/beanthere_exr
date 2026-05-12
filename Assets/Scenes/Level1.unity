@@ -8601,9 +8601,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BackgroundMusicManager
   backgroundMusic: {fileID: 8300000, guid: ed2c90fecb66c204dbe5c1c96af2eba0, type: 3}
-  musicVolume: 0.02
+  musicVolume: 0.01
   ambianceSound: {fileID: 8300000, guid: 72b57d11aa45d5c4f95981e9e1e6e0fc, type: 3}
-  ambianceVolume: 1
+  ambianceVolume: 1.5
 --- !u!4 &634382196
 Transform:
   m_ObjectHideFlags: 0
@@ -11178,7 +11178,6 @@ MonoBehaviour:
   beansParticles: {fileID: 1361777325}
   grindParticles: {fileID: 169387458}
   currentPortafilter: {fileID: 209085353}
-  taskManager: {fileID: 1922775808}
 --- !u!82 &1290541969
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5,12 +5,12 @@ public class BackgroundMusicManager : MonoBehaviour
     [Header("Music Settings")]
     public AudioClip backgroundMusic;
     [Range(0f, 1f)]
-    public float musicVolume = 0.3f;
+    public float musicVolume = 0.01f;
     
     [Header("Ambiance Settings")]
     public AudioClip ambianceSound; // Coffee shop sounds, rain, etc.
-    [Range(0f, 1f)]
-    public float ambianceVolume = 0.5f;
+    [Range(0f, 2f)]
+    public float ambianceVolume = 1.5f;
     
     private AudioSource musicSource;
     private AudioSource ambianceSource;
@@ -66,7 +66,7 @@ public class BackgroundMusicManager : MonoBehaviour
     
     public void SetAmbianceVolume(float volume)
     {
-        ambianceVolume = Mathf.Clamp01(volume);
+        ambianceVolume = Mathf.Clamp(volume, 0f, 2f);
         if (ambianceSource != null)
             ambianceSource.volume = ambianceVolume;
     }
