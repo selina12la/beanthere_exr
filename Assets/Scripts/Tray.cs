@@ -33,37 +33,38 @@ public class Tray : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (isProcessing) return;
-        
+    
         if (currentMug != null && other.gameObject == currentMug)
         {
             stayTimer += Time.deltaTime;
-            
+        
             if (stayTimer >= requiredStayTime)
             {
                 isProcessing = true;
-                
+            
                 TaskManagerLocator.Current?.OnMugOnTray();
-             
+
                 if (gameManager != null)
                     gameManager.CompleteLevel(currentMug);
-                
+            
                 Destroy(currentMug);
                 currentMug = null;
-                
                 SpawnNewMug();
-                
+            
                 if (espressoMachine != null)
                     espressoMachine.ResetMachine();
-                
+            
+                // LEVEL COMPLETED - Rufe CompleteLevel auf
                 if (levelCompletion != null)
                 {
                     levelCompletion.CompleteLevel("Level 1");
+                    Debug.Log("🎉 Level completion triggered!");
                 }
                 else
                 {
-                    StartCoroutine(LoadNextSceneAfterDelay(3f));
+                    Debug.LogError("❌ levelCompletion is NULL! Assign LevelCompletionManager in Inspector.");
                 }
-                
+            
                 isProcessing = false;
                 stayTimer = 0f;
             }
