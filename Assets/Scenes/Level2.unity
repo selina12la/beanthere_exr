@@ -14032,6 +14032,7 @@ GameObject:
   m_Component:
   - component: {fileID: 744214701}
   - component: {fileID: 744214700}
+  - component: {fileID: 744214702}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -14074,6 +14075,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744214702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744214699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba425b303847924482b152f414dcc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  levelTextDisplayTime: 2
+  levelTextPrefab: {fileID: 0}
 --- !u!1001 &764432611
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31856,6 +31871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Trai
   gameManager: {fileID: 744214700}
+  levelCompletion: {fileID: 0}
   mugPrefab: {fileID: 8111871171658314857, guid: 12f0e75e509c5b04a8d3e838e8ea621f, type: 3}
   mugSpawnPoint: {fileID: 370035982}
   espressoMachine: {fileID: 1024792073}
