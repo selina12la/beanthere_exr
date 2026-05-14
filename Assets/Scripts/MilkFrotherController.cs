@@ -53,6 +53,7 @@ public class MilkFrotherController : MonoBehaviour
             
             // Task 5
             TaskManagerLocator.Current?.OnMilkSteamed();
+            Debug.Log("🥛 Milk steamed! Task 4 triggered");
         }
         Invoke(nameof(StopFrother), 5f);
     }

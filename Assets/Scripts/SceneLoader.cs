@@ -41,6 +41,7 @@ public class SceneLoader : MonoBehaviour
         {
             case 0: return "LEVEL 1";
             case 1: return "LEVEL 2";
+            case 2: return "LEVEL 3";
             default: return "";
         }
     }

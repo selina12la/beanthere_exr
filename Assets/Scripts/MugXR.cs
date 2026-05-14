@@ -160,6 +160,32 @@ public class MugXR : MonoBehaviour
         }
     }
 
+    public void AddMatcha()
+    {
+        hasCoffee = true;
+        hasMilk = false;
+    
+        if (coffeeVisual != null)
+        {
+            coffeeVisual.SetActive(true);
+        }
+        if (latteVisual != null)
+        {
+            latteVisual.SetActive(false);
+        }
+    
+        if (coffeeVisual != null)
+        {
+            var renderer = coffeeVisual.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.material.color = Color.green;
+            }
+        }
+    
+        Debug.Log("🍵 Matcha in mug!");
+    }
+
     public bool HasCoffee() => hasCoffee;
     public bool HasMilk() => hasMilk;
     public bool IsLatte() => hasCoffee && hasMilk;

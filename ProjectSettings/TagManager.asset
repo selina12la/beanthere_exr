@@ -14,6 +14,8 @@ TagManager:
   - MilkFrother
   - MilkFrotherZone
   - MilkDetector
+  - WaterPot
+  - Bowl
   layers:
   - Default
   - TransparentFX

@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 4767373478768185069}
   - component: {fileID: 731337335278040836}
   - component: {fileID: 756303111908025832}
+  - component: {fileID: 512428706903289914}
+  - component: {fileID: 1474392344987185903}
+  - component: {fileID: 5612093187597090723}
   m_Layer: 0
   m_Name: Trai
   m_TagString: Untagged
@@ -106,9 +109,58 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &512428706903289914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234200834327148579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d5a150f0e5187418f21f62ff5736e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Trai
+  gameManager: {fileID: 0}
+  levelCompletion: {fileID: 1474392344987185903}
+  mugPrefab: {fileID: 8111871171658314857, guid: 12f0e75e509c5b04a8d3e838e8ea621f, type: 3}
+  mugSpawnPoint: {fileID: 0}
+  espressoMachine: {fileID: 0}
+  requiredStayTime: 2
+  requiredTag: Mug
+--- !u!114 &1474392344987185903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234200834327148579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b906806de3d0e8469492d3b08c277d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelCompletionManager
+  completionTextDuration: 3
+  nextLevelIndex: 1
+  completionTextPrefab: {fileID: 5561795615625165627, guid: 0c09ff73f44e4614a841262520240c4d, type: 3}
+--- !u!114 &5612093187597090723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234200834327148579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2c14e8f4c71ff14eaed14d09ab8375c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelStartText
+  displayDuration: 3
+  levelText: LEVEL 1
+  textPrefab: {fileID: 6104005009682260071, guid: a5cc368245cc4fb4c901c6e665f73153, type: 3}

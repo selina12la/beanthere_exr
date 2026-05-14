@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2023350558014381399}
   m_Layer: 0
   m_Name: Goose Neck Kettle
-  m_TagString: Untagged
+  m_TagString: WaterPot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8283313218948310704}
+  - {fileID: 2094904736586932759}
   - {fileID: 5277727882290318059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
   m_InteractionManager: {fileID: 0}
   m_Colliders:
-  - {fileID: 6152369857499231865}
+  - {fileID: 0}
   m_InteractionLayers:
     m_Bits: 1
   m_DistanceCalculationMode: 1
@@ -217,13 +217,13 @@ Transform:
   m_GameObject: {fileID: 9199443765014048650}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.258819, z: -0, w: 0.9659259}
-  m_LocalPosition: {x: -4.1859403, y: 1.0795, z: -1.051}
+  m_LocalPosition: {x: -4.183, y: 1.0795, z: -1.05}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4973936615702175718}
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
---- !u!1001 &8466349489937662299
+--- !u!1001 &1916318746879804924
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -231,86 +231,108 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4973936615702175718}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.8289404
+      value: -4.1123
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.966
+      value: 0.921
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6420001
+      value: -2.5804
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - target: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
-      propertyPath: m_ConstrainProportionsScale
+    - target: {fileID: 919132149155446097, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: m_Name
+      value: Water Pot Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
-      propertyPath: m_Name
-      value: Goose Neck Kettle Model
+    - target: {fileID: 919132149155446097, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: m_TagString
+      value: WaterPot
       objectReference: {fileID: 0}
+    - target: {fileID: 1895981812710686730, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: m_TagString
+      value: WaterPot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636879579205433418, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.425
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636879579205433418, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 2636879579205433418, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.446
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977290193580185593, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: m_TagString
+      value: WaterPot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211758611687808721, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f94106645592b3b4998f8c16337015f8, type: 2}
+    - target: {fileID: 8211758611687808721, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c72c18a65c5a3ed4ead4b1b025a1a5d8, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+    - {fileID: -8700617353114198275, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 1895981812710686730, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6152369857499231865}
-  m_SourcePrefab: {fileID: 100100000, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
---- !u!1 &302346114901017811 stripped
+      addedObject: {fileID: 4602101036309384548}
+  m_SourcePrefab: {fileID: 100100000, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+--- !u!1 &60729147613873654 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
-  m_PrefabInstance: {fileID: 8466349489937662299}
+  m_CorrespondingSourceObject: {fileID: 1895981812710686730, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+  m_PrefabInstance: {fileID: 1916318746879804924}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &6152369857499231865
+--- !u!65 &4602101036309384548
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 302346114901017811}
+  m_GameObject: {fileID: 60729147613873654}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -325,8 +347,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.48406, y: 0.523898, z: 0.64899707}
   m_Center: {x: 1.124365, y: 0.234467, z: -3.1135836}
---- !u!4 &8283313218948310704 stripped
+--- !u!4 &2094904736586932759 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 99584220de6dc4f11aea2aa2f7f2d147, type: 3}
-  m_PrefabInstance: {fileID: 8466349489937662299}
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 836145684c8e9114dbe5e7349cb06895, type: 3}
+  m_PrefabInstance: {fileID: 1916318746879804924}
   m_PrefabAsset: {fileID: 0}
