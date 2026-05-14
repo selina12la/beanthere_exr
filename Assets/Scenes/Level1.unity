@@ -8661,7 +8661,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633779068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2.517}
+  m_LocalPosition: {x: 0, y: 0, z: 2.441}
   m_LocalScale: {x: 0.003238673, y: 0.004010541, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8671,7 +8671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 2.27, y: 1.217}
+  m_AnchoredPosition: {x: 2.405, y: 1.596}
   m_SizeDelta: {x: 450, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &634382194
@@ -26412,8 +26412,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b906806de3d0e8469492d3b08c277d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelCompletionManager
-  completionTextDuration: 500
+  completionTextDuration: 3
   nextLevelIndex: 1
+  completionTextPrefab: {fileID: 5561795615625165627, guid: 0c09ff73f44e4614a841262520240c4d, type: 3}
 --- !u!114 &2558684059581674395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26426,10 +26427,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c14e8f4c71ff14eaed14d09ab8375c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelStartText
-  displayDuration: 500
+  displayDuration: 3
   levelText: LEVEL 1
-  fontSize: 48
-  textColor: {r: 1, g: 1, b: 1, a: 1}
+  textPrefab: {fileID: 6104005009682260071, guid: a5cc368245cc4fb4c901c6e665f73153, type: 3}
 --- !u!1001 &3408622374110966291
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,7 +17,6 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
     
     private void Start()
     {
-        Debug.Log("=== TaskListManagerLevel1 START ===");
         CreateTaskList();
     }
     
@@ -25,13 +24,11 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
     {
         if (taskItemPrefab == null)
         {
-            Debug.LogError("taskItemPrefab is NULL! Assign it in the Inspector!");
             return;
         }
         
         if (taskContainer == null)
         {
-            Debug.LogError("taskContainer is NULL! Assign it in the Inspector!");
             return;
         }
         
@@ -48,8 +45,6 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
             "5. Place mug on serving tray"
         };
         
-        Debug.Log($"Creating {taskDescriptions.Length} tasks...");
-        
         foreach (string description in taskDescriptions)
         {
             GameObject taskObj = Instantiate(taskItemPrefab, taskContainer);
@@ -62,21 +57,12 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
             {
                 taskItem.Initialize(description);
                 taskItems.Add(taskItem);
-                Debug.Log($"✅ Task created: {description}");
-            }
-            else
-            {
-                Debug.LogError($"❌ TaskItem component not found on prefab! Prefab name: {taskItemPrefab.name}");
-                Debug.LogError($"   Make sure the TaskItem script is attached to the root of the prefab!");
             }
         }
-        
-        Debug.Log($"Total tasks created: {taskItems.Count}");
     }
     
     public void OnBeansPoured()
     {
-        Debug.Log($"OnBeansPoured called! Current state: beansPoured={beansPoured}");
         if (!beansPoured)
         {
             beansPoured = true;
@@ -86,7 +72,6 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
     
     public void OnFilterGround()
     {
-        Debug.Log($"OnFilterGround called! beansPoured={beansPoured}, filterGround={filterGround}");
         if (!filterGround && beansPoured)
         {
             filterGround = true;
@@ -96,7 +81,6 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
     
     public void OnFilterInMachine()
     {
-        Debug.Log($"OnFilterInMachine called! filterGround={filterGround}, filterInMachine={filterInMachine}");
         if (!filterInMachine && filterGround)
         {
             filterInMachine = true;
@@ -106,7 +90,6 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
     
     public void OnMugInMachine()
     {
-        Debug.Log($"OnMugInMachine called! filterInMachine={filterInMachine}, mugInMachine={mugInMachine}");
         if (!mugInMachine && filterInMachine)
         {
             mugInMachine = true;
@@ -116,7 +99,6 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
     
     public void OnMugOnTray()
     {
-        Debug.Log($"OnMugOnTray called! mugInMachine={mugInMachine}, mugOnTray={mugOnTray}");
         if (!mugOnTray && mugInMachine)
         {
             mugOnTray = true;
@@ -137,22 +119,14 @@ public class TaskListManagerLevel1 : MonoBehaviour, ITaskListManager
     
     private void CompleteTask(int index)
     {
-        Debug.Log($"CompleteTask called for index {index}. taskItems.Count={taskItems.Count}");
-        
         if (index < taskItems.Count)
         {
-            Debug.Log($"Completing task {index + 1}: {taskItems[index].GetType()}");
             taskItems[index].Complete();
-            Debug.Log($"✅ Task {index + 1} completed!");
-        }
-        else
-        {
-            Debug.LogError($"❌ Task index {index} out of range! taskItems.Count={taskItems.Count}");
         }
     }
     
     private void OnAllTasksComplete()
     {
-        Debug.Log("🎉 LEVEL 1 COMPLETE! 🎉");
+        Debug.Log("LEVEL 1 COMPLETE!");
     }
 }

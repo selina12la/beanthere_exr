@@ -28,8 +28,6 @@ public class SceneChangeListener : MonoBehaviour
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Reset task manager cache when loading a new scene
         TaskManagerLocator.Reset();
-        Debug.Log($"Scene loaded: {scene.name}, TaskManager cache reset");
     }
 }

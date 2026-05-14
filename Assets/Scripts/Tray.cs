@@ -54,15 +54,9 @@ public class Tray : MonoBehaviour
                 if (espressoMachine != null)
                     espressoMachine.ResetMachine();
             
-                // LEVEL COMPLETED - Rufe CompleteLevel auf
                 if (levelCompletion != null)
                 {
                     levelCompletion.CompleteLevel("Level 1");
-                    Debug.Log("🎉 Level completion triggered!");
-                }
-                else
-                {
-                    Debug.LogError("❌ levelCompletion is NULL! Assign LevelCompletionManager in Inspector.");
                 }
             
                 isProcessing = false;

@@ -7,6 +7,7 @@ public class LevelCompletionManager : MonoBehaviour
     [Header("Completion Settings")]
     public float completionTextDuration = 3f;
     public int nextLevelIndex = 1;
+    public GameObject completionTextPrefab;
     
     private bool isCompleting = false;
     
@@ -22,34 +23,16 @@ public class LevelCompletionManager : MonoBehaviour
     private void ShowCompletionText(string text)
     {
         Canvas canvas = FindFirstObjectByType<Canvas>();
-        if (canvas == null)
+        
+        if (completionTextPrefab != null)
         {
-            Debug.LogError("❌ No Canvas found in scene!");
-            return;
+            GameObject textObj = Instantiate(completionTextPrefab, canvas.transform);
+            TextMeshProUGUI tmpText = textObj.GetComponent<TextMeshProUGUI>();
+            if (tmpText != null)
+                tmpText.text = text;
+            
+            Destroy(textObj, completionTextDuration);
         }
-        
-        GameObject textObj = new GameObject("LevelCompleteText");
-        textObj.transform.SetParent(canvas.transform);
-        
-        TextMeshProUGUI tmpText = textObj.AddComponent<TextMeshProUGUI>();
-        tmpText.text = text;
-        tmpText.fontSize = 48;
-        tmpText.alignment = TextAlignmentOptions.Center;
-        tmpText.color = Color.green;
-        tmpText.fontStyle = FontStyles.Bold;
-        
-        tmpText.outlineWidth = 0.2f;
-        tmpText.outlineColor = Color.black;
-        
-        RectTransform rect = textObj.GetComponent<RectTransform>();
-        rect.anchorMin = new Vector2(0, 0);
-        rect.anchorMax = new Vector2(1, 1);
-        rect.offsetMin = Vector2.zero;
-        rect.offsetMax = Vector2.zero;
-        
-        Destroy(textObj, completionTextDuration);
-        
-        Debug.Log($"✅ Level completion text shown: '{text}'");
     }
     
     private IEnumerator LoadNextLevelAfterDelay(float delay)

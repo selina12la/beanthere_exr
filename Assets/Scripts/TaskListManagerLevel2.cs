@@ -51,15 +51,8 @@ public class TaskListManagerLevel2 : MonoBehaviour, ITaskListManager
             {
                 taskItem.Initialize(description);
                 taskItems.Add(taskItem);
-                Debug.Log($"Task created: {description}");
-            }
-            else
-            {
-                Debug.LogError($"TaskItem component not found on prefab! Prefab: {taskItemPrefab.name}");
             }
         }
-        
-        Debug.Log($"Total tasks created: {taskItems.Count}");
     }
     
     public void OnBeansPoured()
@@ -104,23 +97,15 @@ public class TaskListManagerLevel2 : MonoBehaviour, ITaskListManager
         {
             milkSteamed = true;
             CompleteTask(4);
-            Debug.Log("🥛 Milk steamed!");
         }
     }
     
     public void OnMilkPoured()
     {
-        Debug.Log($"🔥 OnMilkPoured called! milkSteamed={milkSteamed}, milkPoured={milkPoured}");
-    
         if (!milkPoured && milkSteamed)
         {
             milkPoured = true;
             CompleteTask(5);
-            Debug.Log("🥛 Milk poured! Task completed!");
-        }
-        else
-        {
-            Debug.Log($"Cannot pour milk: milkSteamed={milkSteamed}, milkPoured={milkPoured}");
         }
     }
     
@@ -139,16 +124,11 @@ public class TaskListManagerLevel2 : MonoBehaviour, ITaskListManager
         if (index < taskItems.Count)
         {
             taskItems[index].Complete();
-            Debug.Log($"Task {index + 1} completed!");
-        }
-        else
-        {
-            Debug.LogError($"Task index {index} out of range! taskItems.Count={taskItems.Count}");
         }
     }
     
     private void OnAllTasksComplete()
     {
-        Debug.Log("🎉 LEVEL 2 COMPLETE! 🎉");
+        Debug.Log("LEVEL 2 COMPLETE!");
     }
 }

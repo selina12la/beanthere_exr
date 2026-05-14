@@ -23,11 +23,6 @@ public class TaskItem : MonoBehaviour
         if (taskText != null)
         {
             taskText.text = description;
-            Debug.Log($"TaskItem initialized: '{description}'");
-        }
-        else
-        {
-            Debug.LogError($"❌ TaskItem: No TextMeshProUGUI found on {gameObject.name}!");
         }
     }
     
@@ -40,11 +35,6 @@ public class TaskItem : MonoBehaviour
         {
             taskText.text = $"<s>{taskDescription}</s>";
             taskText.color = Color.gray;
-            Debug.Log($"✅ Task completed (UI updated): {taskDescription}");
-        }
-        else
-        {
-            Debug.LogError($"❌ Cannot complete task - taskText is NULL! Task: {taskDescription}");
         }
     }
 }
