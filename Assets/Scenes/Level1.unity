@@ -8885,6 +8885,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 455977959}
     m_Modifications:
+    - target: {fileID: 1848967846411263127, guid: 12f0e75e509c5b04a8d3e838e8ea621f, type: 3}
+      propertyPath: m_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2812631212572583819, guid: 12f0e75e509c5b04a8d3e838e8ea621f, type: 3}
       propertyPath: m_TagString
       value: Mug
