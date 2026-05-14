@@ -29,7 +29,9 @@ public class LevelCompletionManager : MonoBehaviour
             GameObject textObj = Instantiate(completionTextPrefab, canvas.transform);
             TextMeshProUGUI tmpText = textObj.GetComponent<TextMeshProUGUI>();
             if (tmpText != null)
+            {
                 tmpText.text = text;
+            }
             
             Destroy(textObj, completionTextDuration);
         }

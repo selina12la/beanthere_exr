@@ -182,8 +182,6 @@ public class MugXR : MonoBehaviour
                 renderer.material.color = Color.green;
             }
         }
-    
-        Debug.Log("🍵 Matcha in mug!");
     }
 
     public bool HasCoffee() => hasCoffee;

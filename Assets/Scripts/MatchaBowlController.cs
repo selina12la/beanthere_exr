@@ -5,10 +5,8 @@ public class MatchaBowlController : MonoBehaviour
     [Header("Visuals")]
     public GameObject matchaPowderVisual;
     public GameObject matchaLiquidVisual;
-    public ParticleSystem matchaParticles;
     
     [Header("Audio")]
-    public AudioSource addPowderSound;
     public AudioSource addWaterSound;
     
     private bool hasPowder = false;
@@ -16,8 +14,14 @@ public class MatchaBowlController : MonoBehaviour
     
     private void Start()
     {
-        if (matchaPowderVisual != null) matchaPowderVisual.SetActive(false);
-        if (matchaLiquidVisual != null) matchaLiquidVisual.SetActive(false);
+        if (matchaPowderVisual != null)
+        {
+            matchaPowderVisual.SetActive(false);
+        }
+        if (matchaLiquidVisual != null)
+        {
+            matchaLiquidVisual.SetActive(false);
+        }
     }
     
     public void AddMatchaPowder()
@@ -25,10 +29,10 @@ public class MatchaBowlController : MonoBehaviour
         if (!hasPowder)
         {
             hasPowder = true;
-            if (matchaPowderVisual != null) matchaPowderVisual.SetActive(true);
-            if (addPowderSound != null) addPowderSound.Play();
-            if (matchaParticles != null) matchaParticles.Play();
-            Debug.Log("✅ Matcha powder added to bowl!");
+            if (matchaPowderVisual != null)
+            {
+                matchaPowderVisual.SetActive(true);
+            }
         }
     }
     
@@ -37,11 +41,18 @@ public class MatchaBowlController : MonoBehaviour
         if (hasPowder && !hasWater)
         {
             hasWater = true;
-            if (matchaPowderVisual != null) matchaPowderVisual.SetActive(false);
-            if (matchaLiquidVisual != null) matchaLiquidVisual.SetActive(true);
-            if (addWaterSound != null) addWaterSound.Play();
-            if (matchaParticles != null) matchaParticles.Play();
-            Debug.Log("✅ Water added to bowl! Matcha ready to pour.");
+            if (matchaPowderVisual != null)
+            {
+                matchaPowderVisual.SetActive(false);
+            }
+            if (matchaLiquidVisual != null)
+            {
+                matchaLiquidVisual.SetActive(true);
+            }
+            if (addWaterSound != null)
+            {
+                addWaterSound.Play();
+            }
         }
     }
     
@@ -54,8 +65,13 @@ public class MatchaBowlController : MonoBehaviour
     {
         hasPowder = false;
         hasWater = false;
-        if (matchaPowderVisual != null) matchaPowderVisual.SetActive(false);
-        if (matchaLiquidVisual != null) matchaLiquidVisual.SetActive(false);
-        if (matchaParticles != null) matchaParticles.Stop();
+        if (matchaPowderVisual != null)
+        {
+            matchaPowderVisual.SetActive(false);
+        }
+        if (matchaLiquidVisual != null)
+        {
+            matchaLiquidVisual.SetActive(false);
+        }
     }
 }

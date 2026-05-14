@@ -7,8 +7,6 @@ public class Tray : MonoBehaviour
     public GameCompletionManager gameManager;
     public LevelCompletionManager levelCompletion;  
     [Header("Mug Spawning")] 
-    public GameObject mugPrefab;
-    public Transform mugSpawnPoint;
     public EspressoMachineController espressoMachine;
     
     [Header("Settings")] 
@@ -49,7 +47,6 @@ public class Tray : MonoBehaviour
             
                 Destroy(currentMug);
                 currentMug = null;
-                SpawnNewMug();
             
                 if (espressoMachine != null)
                     espressoMachine.ResetMachine();
@@ -67,32 +64,15 @@ public class Tray : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (isProcessing) return;
+        if (isProcessing)
+        {
+            return;
+        }
         
         if (currentMug != null && other.gameObject == currentMug)
         {
             currentMug = null;
             stayTimer = 0f;
-        }
-    }
-
-    private void SpawnNewMug()
-    {
-        if (mugPrefab != null && mugSpawnPoint != null)
-        {
-            GameObject newMug = Instantiate(mugPrefab, mugSpawnPoint.position, mugSpawnPoint.rotation);
-            newMug.tag = "Mug";
-            newMug.transform.position = mugSpawnPoint.position;
-            newMug.transform.rotation = mugSpawnPoint.rotation;
-            
-            Rigidbody rb = newMug.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.isKinematic = false;
-                rb.useGravity = true;
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-            }
         }
     }
     

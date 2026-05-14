@@ -32,9 +32,9 @@ public class TaskListManagerLevel3 : MonoBehaviour, ITaskListManager
         string[] taskDescriptions = new string[]
         {
             "1. Hover matcha powder over bowl",
-            "2. Pour water into bowl",
-            "3. Pour matcha into mug",
-            "4. Steam milk",
+            "2. Hover water pot over bowl",
+            "3. Hover matcha bowl over mug",
+            "4. Steam milk in espresso machine",
             "5. Pour milk into matcha cup",
             "6. Place mug on serving tray"
         };
@@ -44,16 +44,16 @@ public class TaskListManagerLevel3 : MonoBehaviour, ITaskListManager
             GameObject taskObj = Instantiate(taskItemPrefab, taskContainer);
             TaskItem taskItem = taskObj.GetComponent<TaskItem>();
             if (taskItem == null)
+            {
                 taskItem = taskObj.GetComponentInChildren<TaskItem>();
+            }
             
             if (taskItem != null)
             {
                 taskItem.Initialize(description);
                 taskItems.Add(taskItem);
-                Debug.Log($"Task created: {description}");
             }
         }
-        Debug.Log($"Total tasks: {taskItems.Count}");
     }
     
     public void OnBeansPoured()
@@ -62,7 +62,6 @@ public class TaskListManagerLevel3 : MonoBehaviour, ITaskListManager
         {
             matchaPowderAdded = true;
             CompleteTask(0);
-            Debug.Log("✅ Task 1 completed!");
         }
     }
     
@@ -72,7 +71,6 @@ public class TaskListManagerLevel3 : MonoBehaviour, ITaskListManager
         {
             waterAdded = true;
             CompleteTask(1);
-            Debug.Log("✅ Task 2 completed!");
         }
     }
     
@@ -82,7 +80,6 @@ public class TaskListManagerLevel3 : MonoBehaviour, ITaskListManager
         {
             matchaInMug = true;
             CompleteTask(2);
-            Debug.Log("✅ Task 3 completed!");
         }
     }
     
@@ -97,7 +94,6 @@ public class TaskListManagerLevel3 : MonoBehaviour, ITaskListManager
         {
             milkSteamed = true;
             CompleteTask(3);
-            Debug.Log("✅ Task 4 completed!");
         }
     }
     
@@ -107,7 +103,6 @@ public class TaskListManagerLevel3 : MonoBehaviour, ITaskListManager
         {
             milkPoured = true;
             CompleteTask(4);
-            Debug.Log("✅ Task 5 completed!");
         }
     }
     
@@ -117,7 +112,6 @@ public class TaskListManagerLevel3 : MonoBehaviour, ITaskListManager
         {
             mugOnTray = true;
             CompleteTask(5);
-            Debug.Log("✅ Task 6 completed!");
             OnAllTasksComplete();
         }
     }
@@ -127,19 +121,16 @@ public class TaskListManagerLevel3 : MonoBehaviour, ITaskListManager
         if (index < taskItems.Count && taskItems[index] != null)
         {
             taskItems[index].Complete();
-            Debug.Log($"Task {index + 1} marked as complete in UI");
-        }
-        else
-        {
-            Debug.LogError($"Task {index} not found! taskItems.Count={taskItems.Count}");
         }
     }
     
     private void OnAllTasksComplete()
     {
-        Debug.Log("🎉 LEVEL 3 COMPLETE! 🎉");
+        Debug.Log("LEVEL 3 COMPLETE!");
         LevelCompletionManager completion = FindFirstObjectByType<LevelCompletionManager>();
         if (completion != null)
+        {
             completion.CompleteLevel("Level 3");
+        }
     }
 }

@@ -34,7 +34,7 @@ public class TaskListManagerLevel2 : MonoBehaviour, ITaskListManager
             "2. Snap filter into grinder",
             "3. Move filter to espresso machine",
             "4. Snap mug into espresso machine",
-            "5. Steam milk",
+            "5. Steam milk in espresso machine",
             "6. Pour milk into coffee cup",
             "7. Place mug on serving tray"
         };

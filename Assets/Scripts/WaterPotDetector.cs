@@ -16,7 +16,6 @@ public class WaterPotDetector : MonoBehaviour
         {
             bowl.AddWater();
             taskManager?.OnFilterGround(); // Task 2
-            Debug.Log("✅ Water added! Task 2 complete");
         }
     }
 }

@@ -22,7 +22,9 @@ public class LevelStartText : MonoBehaviour
             GameObject textObj = Instantiate(textPrefab, canvas.transform);
             TextMeshProUGUI tmpText = textObj.GetComponent<TextMeshProUGUI>();
             if (tmpText != null)
+            {
                 tmpText.text = levelText;
+            }
             
             Destroy(textObj, displayDuration);
         }
