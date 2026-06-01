@@ -1,12 +1,17 @@
 # BeanThere – EXR Project
 
 ## 📌 Project Overview
-BeanThere is a Unity-based VR experience developed as part of the EXR project.
+BeanThere is a Unity-based VR barista training experience developed as part of the EXR module at FHNW. Users learn to prepare coffee drinks from different cultures through spatial interactions in virtual reality.
+
+**Included drinks:**
+- Level 1: Espresso (Italian coffee tradition)
+- Level 2: Latte (with milk steaming)
+- Level 3: Matcha Latte (Japanese tea culture)
 
 ## 🛠 Built With
 - Unity (version: 6000.3.10f1)
 - XR Interaction Toolkit
-- Target platform: (Meta Quest Pro.)
+- Target platform: PC with Meta XR Simulator & Meta Quest Pro
 
 ## 👥 Team
 - Selina Lanz
